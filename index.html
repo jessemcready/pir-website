@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-height, initial-scale=0.7, user-scalable=yes"/>
+	<meta content="yes" name="mobile-web-app-capable"/>
+	<meta content="Website to create PIR's for the NYC DOT" name="description"/>
+	<title>Really Sketch</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/CanvasInput/1.2.6/CanvasInput.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+
+	<script src="script.js"></script>
+	<img id="leftSideImage" src="images\leftSide.png">
+	<div id="dotHeader">
+		<div id="header">
+			<div align="left" class="column" id="contracts">
+				<font size="4px">CONTRACT NO. </font><input id="contractNum" name="contract_number" type="text" font-size="12px">
+			</div>
+			<div align="center" class="column" id="pirHead">
+				<strong><font size="6px">PRELIMINARY INSPECTION REPORT</font></strong>
+			</div>
+			<div align="right" class="column" id="sheets">
+					<font size="4px">Sheet <input id="sheetOne" class="sheet_input" type="number"> of <input id="sheetTwo" class="sheet_input" type="number"></font>
+			</div>
+		</div>
+		<div id="fill_in">
+			<div id="property_info">
+				<strong>Property Information</strong><br><br>
+				Property Address <input id="property-address1" size="25" type="text">
+				<input id="property-address2" size="35" type="text"><br>
+				Borough:<input id="borough" size="10" type="text"> BLDG CL:<input id="bldgCl" size="10" type="text"><br><br>
+				Block:<input id="block" size="8" type="text"> Lot:<input id="lot" size="6" type="text"> CB: <input id="cb" size="6" type="text"><br><br>
+				Inspected By:<input id="inspectorInitials" size="8" type="text"> Date:<input id="dateOfInsp" size="10" type="text"><br><br>
+				Property Dimensions:<input id="dim" type="text">
+				<br>
+			</div>
+			<div id="estimate">
+				<p id="estimateP"><strong><font size="12px"></font>Estimate</strong><br></p>
+				The estimated amount of sidewalk to be replaced <input id="swEst" type="text" size="10"> square feet.<br><br>
+				Please be advised that this is an estimate based on visual inspection. The actual<br>
+				condition of your sidewalk at the time of excavation may require that more<br>
+				sidewalk be replaced at your expense.<br><br>
+				All defects are the responsibility of the property owner. The defects shown<br>
+				reflect the condition of your sidewalk on the date of this report.
+				<br><br><input id="extraComm" size="40" type="text">
+			</div>
+			<div id="ownership_info">
+				<strong>Ownership Information</strong><br>
+				<br>
+				Violation #<input type="text" readonly><br><br>
+				Owner(s):<input type="text" readonly><br><br>
+				Address: <input type="text" readonly><br><br>
+				<input size="25" type="text" readonly><br><br>
+				City/State/Zip:<input type="text" readonly><br>
+			</div>
+				<div id="vertical_text">
+					<strong>For Official Use Only</strong>&nbsp;
+				</div>
+				<div id="typeofinspection">
+					<br>
+					<span id="three" onclick="makeCircle(this.id)">311</span><br>
+					<span id="threePu" onclick="makeCircle(this.id)">311/PU</span><br>
+					<span id="corr" onclick="makeCircle(this.id)">CORR</span><br>
+					<span id="corrPu" onclick="makeCircle(this.id)">CORR P/U</span><br>
+					<span id="fiveA" onclick="makeCircle(this.id)">5A</span><br>
+					<span id="cc" onclick="makeCircle(this.id)">CC #</span><br>
+					<span id="ccPu" onclick="makeCircle(this.id)">CC P/U</span><br>
+					<span id="fourPlus" onclick="makeCircle(this.id)">4+ CLAIMS</span>
+				</div>
+		</div>
+		<div id="defects">
+			<br>
+			<span style="position: absolute; left: 0; top: 30px;"><strong>Sidewalk Flag Defects</strong></span>
+			&nbsp; <span id="broken" onclick="makeCircle(this.id)">1</span> - Broken
+			&nbsp; <span id="undermined" onclick="makeCircle(this.id)">2</span> - Undermined
+			&nbsp; <span id="trip" onclick="makeCircle(this.id)" >3</span> - Trip Hazard
+			&nbsp; <span id="slope" onclick="makeCircle(this.id)" >4</span> - Improper Slope
+			&nbsp; <span id="hardware" onclick="makeCircle(this.id)" >5</span> - Hardware
+			&nbsp; <span id="structural-integrity" onclick="makeCircle(this.id)">6A</span> - Structural Intergrity<br>
+			<span id="freestanding" onclick="makeCircle(this.id)" >6B</span> - Freestanding
+			&nbsp; <span id="patchwork" onclick="makeCircle(this.id)" >6C</span> - Patchwork
+			&nbsp; <span id="no-sidewalk" onclick="makeCircle(this.id)" >6D</span> - No Sidewalk
+			&nbsp; <span id="asphalt" onclick="makeCircle(this.id)" >6E</span> - Asphalt
+			&nbsp; <span id="other" onclick="makeCircle(this.id)" >6</span> - Other<input type="text" size="15">
+		</div>
+
+		<div id="graphCanvas">
+			<canvas id="bgcanvas"></canvas>
+			<canvas id="canvas">If you can see this text, your browser doesn't support this website.</canvas>
+				<input type="text" id="streetOne" placeholder="Left Street">
+				<input type="text" id="streetTwo" placeholder="Right Street">
+				<input type="text" id="streetThree" placeholder="On Street">
+		</div>
+	<div id="bottomKey">
+		<div id="curb">
+      <div id="curbOne">
+				<strong>Curb Condition - <span id="brokenCurb" onclick="makeCircle(this.id)">1</span> / <span id="fiveACurb" onclick="makeCircle(this.id)">5A</span> - Approx. Ft Defective</strong><input id="curbEst" type="text" size="35">
+			</div>
+			<div id="curbTwo">
+				<strong>Curb Type: <span id="concrete" onclick="makeCircle(this.id)">C</span>= Concrete&nbsp;<span id="steelFace" onclick="makeCircle(this.id)">SF</span>= Steel Face&nbsp;<span id="granite" onclick="makeCircle(this.id)">G</span>= Granite&nbsp;<span id="blueStone" onclick="makeCircle(this.id)">BS</span>= Blue Stone&nbsp;
+			<span id="cobbleStone" onclick="makeCircle(this.id)">CS</span>= Cobble Stone&nbsp;<span id="noCurb" onclick="makeCircle(this.id)">NC</span>= No Curb<br></strong>
+		</div>
+			<img id="yellowBox" src="images/yellowBox.png">
+		</div>
+      <div id="comments">
+        <strong>Comments: Distinctive Material</strong><input size="3" name="distMaterial" id="distinct"> - <input size="20" type="text">
+        <div id="divFor">
+					<input id="forester" size="3"><strong>Requires Inspection by Forester</strong><br>
+				</div>
+      </div>
+      <div id="key">
+				<figure id="utilCoverFig">
+					<img src="images\Utility Cover.png">
+					<figcaption>Utility Cover</figcaption>
+			</figure>
+			<figure>
+				<img src="images\Hydrant.png"  >
+				<figcaption>Hydrant</figcaption>
+			</figure>
+			<figure>
+				<img src="images\SignMeter.png"  >
+				<figcaption>Sign or Meter</figcaption>
+			</figure>
+			<figure>
+				<img src="images\MailBox.png"  >
+				<figcaption>Mail Box</figcaption>
+			</figure>
+			<figure>
+				<img src="images\Telephone.png"  >
+				<figcaption>Telephone</figcaption>
+			</figure>
+			<figure>
+				<img src="images\CellarDoors.png"  >
+				<figcaption>Cellar Doors</figcaption>
+			</figure>
+			<figure>
+				<img src="images\Pole.png"  >
+				<figcaption>Pole</figcaption>
+			</figure>
+			<figure>
+				<img src="images\Grating.png" >
+				<figcaption>Grating</figcaption>
+			</figure>
+			<figure>
+				<img src="images\TreePit.png"  >
+				<figcaption>Tree Pit</figcaption>
+			</figure>
+			<figure>
+				<img id="dwImg" src="images\Driveway.png"  >
+				<figcaption>Driveway</figcaption>
+			</figure>
+			<figure id="naFlag" onclick="makeCircle(this.id)">
+				<img src="images\Non-Assessable.png">
+				<figcaption>Non-Assessible Flag</figcaption>
+			</figure>
+			<figure id="northFig">
+				<img src="images\North.png">
+				<figcaption>Indicate North</figcaption>
+			</figure>
+      </div>
+	</div>
+
+	<aside>
+		<div id="containerSide">
+		<nav class="actions">
+			<ul>
+				<li><button id="line-button">Line</button></li>
+				<li><button id="arc-button">Arc</button></li>
+				<li><button id="highlight-button">Highlight</button></li>
+				<li><button id="eraser-button">Eraser</button></li>
+				<li><button id="undo-button">Undo</button></li>
+				<li><button id="options-button">Options</button></li>
+				<li><button id="newBlock">Block</button></li>
+				<li><button id="newLot">New Lot</button></li>
+				<li><button id="newPage">New Page</button></li>
+			</ul>
+		</nav>
+		<div id="defectsSymbols">
+				<button id="defectOne">1</button>&nbsp;&nbsp;<button id="defectTwo">2</button>&nbsp;&nbsp;<button id="defectThree">3</button><br>
+				<button id="defectFour">4</button>&nbsp;<button id="defectFive">5</button>&nbsp;<button id="defectSixA">6A</button><br>
+				<button id="defectSixB">6B</button>&nbsp;&nbsp;<button id="defectSixC">6C</button>&nbsp;&nbsp;<button id="defectSixD">6D</button><br>
+				<button id="defectSixE">6E</button>&nbsp;&nbsp;<button id="defectSix">6</button><br>
+				<button id="utilCov">Util</button>&nbsp;&nbsp;<button id="hydrant">Hyd</button><br>
+				<button id="signMeter">Sign</button>&nbsp;&nbsp;<button id="mailBox">Mail</button><br>
+				<button id="telephone">Tel</button>&nbsp;&nbsp;<button id="cellarDoor">CD</button><br>
+				<button id="pole">Pole</button>&nbsp;<button id="gratingVault">Grate</button><br>
+				<button id="tree">Tree</button>&nbsp;&nbsp;<button id="driveWay">DW</button><br>
+		</div>
+		<div id="customSymbols">
+			<input id="customInput">
+			<button id="customInputButton">Customize</button>
+		</div>
+	</div>
+		<section class="dialog" id="options">
+			<div>
+				<header>
+					<h2>Options</h2><button id="options-close"><svg height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+					<polygon fill="#8A8A8A" points="3,1 1,3 6,8 1,13 3,15 8,10 13,15 15,13 10,8 15,3 13,1 8,6"></polygon></svg></button>
+				</header>
+				<aside>
+					<nav>
+						<ul>
+							<li><a href="#file" id="file-link">Project</a></li>
+							<li><a href="#interface" id="interface-link">Interface</a></li>
+							<li><a href="#units" id="units-link">Units</a></li>
+							<li><a href="#snaps" id="snaps-link">Snaps</a></li>
+							<li><a href="#theme" id="theme-link">Theme</a></li>
+							<li><a href="#shortcuts" id="shortcuts-link">Shortcuts</a></li>
+						</ul>
+					</nav>
+				</aside>
+				<section id="file">
+					<h3>Project</h3>
+					<!---<p>Project Name: <input id="name" value="Drawing"></p>!--->
+					<p>Save As PDF: <button id="save">Save</button></p>
+					<p>Import File: <button id="import">Import</button></p>
+					<p>Export File: <button id="export">Export</button></p>
+					</select></p>
+
+				</section>
+				<section id="interface">
+					<h3>Interface</h3>
+					<p>Drawing Mode: <select>
+						<option>
+							Drafting
+						</option>
+						<option>
+							Pixel Art
+						</option>
+					</select></p>
+					<p>Grid Style: <select>
+						<option>
+							None
+						</option>
+						<option>
+							Lines
+						</option>
+						<option>
+							Dots
+						</option>
+					</select></p>
+					<p>Snap Marker: <select>
+						<option>
+							Off
+						</option>
+						<option>
+							On
+						</option>
+					</select></p>
+					<p>Tooltip: <select>
+						<option>
+							Off
+						</option>
+						<option>
+							On
+						</option>
+					</select></p>
+					<p>Hints: <select>
+						<option>
+							Off
+						</option>
+						<option>
+							On
+						</option>
+					</select></p>
+				</section>
+				<section id="units">
+					<h3>Units</h3>
+					<p>Primary Grid Size: <select id="grid">
+						<option value="1">
+							Inch
+						</option>
+						<option value="2.54">
+							Centimeter
+						</option>
+					</select></p>
+					<p>Secondary Divisions: <select id="divisions">
+						<option value="2">
+							2
+						</option>
+						<option value="4">
+							4
+						</option>
+						<option value="5">
+							5
+						</option>
+						<option value="8">
+							8
+						</option>
+						<option value="10">
+							10
+						</option>
+						<option value="12">
+							12
+						</option>
+					</select></p><!--<p>Tooltip Display Units:
+      <select>
+        <option>Primary</option>
+        <option>Secondary</option>
+      </select>
+    </p>-->
+				</section>
+				<section id="snaps">
+					<h3>Snaps</h3>
+					<p>Snap To Grid: <select id="gridsnap">
+						<option value="0">
+							Off
+						</option>
+						<option value="0.5">
+							0.5
+						</option>
+						<option value="1">
+							1
+						</option>
+					</select></p>
+					<p>Snap To Endpoint: <select id="endsnap">
+						<option value="0">
+							Off
+						</option>
+						<option value="1">
+							On
+						</option>
+					</select></p>
+					<p>Snap To Angle: <select id="anglesnap">
+						<option value="0">
+							Off
+						</option>
+						<option value="1">
+							1
+						</option>
+						<option value="3">
+							3
+						</option>
+						<option value="5">
+							5
+						</option>
+						<option value="15">
+							15
+						</option>
+						<option value="30">
+							30
+						</option>
+						<option value="45">
+							45
+						</option>
+					</select></p>
+					<p>Snap To Length: <select id="lengthsnap">
+						<option value="0">
+							Off
+						</option>
+						<option value="0.5">
+							0.5
+						</option>
+						<option value="1">
+							1
+						</option>
+					</select></p>
+				</section>
+				<section id="theme">
+					<h3>Theme</h3>
+					<p>Color Theme: <select>
+						<option>
+							White/Blue
+						</option>
+						<option>
+							Blue/White
+						</option>
+					</select></p>
+					<p>Two Color Grid: <select>
+						<option>
+							Off
+						</option>
+						<option>
+							On
+						</option>
+					</select></p>
+				</section>
+				<section id="shortcuts">
+					<h3>Page Settings</h3>
+					<ul>
+						<p>Propert Size: <button id="oneToThreeButton">1-3</button></p>
+						<button id="fourPlusButton">4+</button>
+						<p>Show Header and Footer <select id="headerFooter" onchange="showHeaderFooter()">
+							<option value="1">
+								Show
+							</option>
+							<option value="0">
+								Hide
+							</option>
+						</select></p>
+					</ul>
+				</section>
+			</div>
+		</section>
+		</div>
+	</aside>
+	<footer>
+		<span id="help"></span> <span id="coords"></span>
+	</footer>
+</body>
+</html>
