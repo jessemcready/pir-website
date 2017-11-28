@@ -2,14 +2,14 @@
   "name": "pir-website",
   "version": "1.0.0",
   "description": "web application for sketching sidewalks",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jessemcready/pir-website.git"
+    "url": "https://github.com/jessemcready/pir-website"
   },
   "author": "Jesse McReady",
   "license": "ISC",
