@@ -16,159 +16,167 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
 
+	<script src="/js/bundle.js"></script>
 	<script src="/js/script.js"></script>
-	<img id="leftSideImage" src="/images/leftSide.png">
-	<div id="dotHeader">
-		<div id="header">
-			<div align="left" class="column" id="contracts">
-				<font size="4px">CONTRACT NO. </font><input id="contractNum" name="contract_number" type="text" font-size="12px">
-			</div>
-			<div align="center" class="column" id="pirHead">
-				<strong><font size="6px">PRELIMINARY INSPECTION REPORT</font></strong>
-			</div>
-			<div align="right" class="column" id="sheets">
-					<font size="4px">Sheet <input id="sheetOne" class="sheet_input" type="number"> of <input id="sheetTwo" class="sheet_input" type="number"></font>
-			</div>
-		</div>
-		<div id="fill_in">
-			<div id="property_info">
-				<strong>Property Information</strong><br><br>
-				Property Address <input id="property-address1" size="25" type="text">
-				<input id="property-address2" size="35" type="text"><br>
-				Borough:<input id="borough" size="10" type="text"> BLDG CL:<input id="bldgCl" size="10" type="text"><br><br>
-				Block:<input id="block" size="8" type="text"> Lot:<input id="lot" size="6" type="text"> CB: <input id="cb" size="6" type="text"><br><br>
-				Inspected By:<input id="inspectorInitials" size="8" type="text"> Date:<input id="dateOfInsp" size="10" type="text"><br><br>
-				Property Dimensions:<input id="dim" type="text">
-				<br>
-			</div>
-			<div id="estimate">
-				<p id="estimateP"><strong><font size="12px"></font>Estimate</strong><br></p>
-				The estimated amount of sidewalk to be replaced <input id="swEst" type="text" size="10"> square feet.<br><br>
-				Please be advised that this is an estimate based on visual inspection. The actual<br>
-				condition of your sidewalk at the time of excavation may require that more<br>
-				sidewalk be replaced at your expense.<br><br>
-				All defects are the responsibility of the property owner. The defects shown<br>
-				reflect the condition of your sidewalk on the date of this report.
-				<br><br><input id="extraComm" size="40" type="text">
-			</div>
-			<div id="ownership_info">
-				<strong>Ownership Information</strong><br>
-				<br>
-				Violation #<input type="text" readonly><br><br>
-				Owner(s):<input type="text" readonly><br><br>
-				Address: <input type="text" readonly><br><br>
-				<input size="25" type="text" readonly><br><br>
-				City/State/Zip:<input type="text" readonly><br>
-			</div>
-				<div id="vertical_text">
-					<strong>For Official Use Only</strong>&nbsp;
+	<div id="pirPage">
+		<img id="leftSideImage" src="/images/leftSide.png">
+		<div id="dotHeader">
+			<div id="header">
+				<div align="left" class="column" id="contracts">
+					<font size="4px">CONTRACT NO. </font><input id="contractNum" name="contract_number" type="text" font-size="12px">
 				</div>
-				<div id="typeofinspection">
+				<div align="center" class="column" id="pirHead">
+					<strong><font size="6px">PRELIMINARY INSPECTION REPORT</font></strong>
+				</div>
+				<div align="right" class="column" id="sheets">
+						<font size="4px">Sheet <input id="sheetOne" class="sheet_input" type="number"> of <input id="sheetTwo" class="sheet_input" type="number"></font>
+				</div>
+			</div>
+			<div id="fill_in">
+				<div id="property_info">
+					<strong>Property Information</strong><br><br>
+					Property Address <input id="property-address1" size="25" type="text">
+					<input id="property-address2" size="35" type="text"><br>
+					Borough:<input id="borough" size="10" type="text"> BLDG CL:<input id="bldgCl" size="10" type="text"><br><br>
+					Block:<input id="block" size="8" type="text"> Lot:<input id="lot" size="6" type="text"> CB: <input id="cb" size="6" type="text"><br><br>
+					Inspected By:<input id="inspectorInitials" size="8" type="text"> Date:<input id="dateOfInsp" size="10" type="text"><br><br>
+					Property Dimensions:<input id="dim" type="text">
 					<br>
-					<span id="three" onclick="makeCircle(this.id)">311</span><br>
-					<span id="threePu" onclick="makeCircle(this.id)">311/PU</span><br>
-					<span id="corr" onclick="makeCircle(this.id)">CORR</span><br>
-					<span id="corrPu" onclick="makeCircle(this.id)">CORR P/U</span><br>
-					<span id="fiveA" onclick="makeCircle(this.id)">5A</span><br>
-					<span id="cc" onclick="makeCircle(this.id)">CC #</span><br>
-					<span id="ccPu" onclick="makeCircle(this.id)">CC P/U</span><br>
-					<span id="fourPlus" onclick="makeCircle(this.id)">4+ CLAIMS</span>
 				</div>
+				<div id="estimate">
+					<p id="estimateP"><strong><font size="12px"></font>Estimate</strong><br></p>
+					The estimated amount of sidewalk to be replaced <input id="swEst" type="text" size="10"> square feet.<br><br>
+					Please be advised that this is an estimate based on visual inspection. The actual<br>
+					condition of your sidewalk at the time of excavation may require that more<br>
+					sidewalk be replaced at your expense.<br><br>
+					All defects are the responsibility of the property owner. The defects shown<br>
+					reflect the condition of your sidewalk on the date of this report.
+					<br><br><input id="extraComm" size="40" type="text">
+				</div>
+				<div id="ownership_info">
+					<strong>Ownership Information</strong><br>
+					<br>
+					Violation #<input type="text" readonly><br><br>
+					Owner(s):<input type="text" readonly><br><br>
+					Address: <input type="text" readonly><br><br>
+					<input size="25" type="text" readonly><br><br>
+					City/State/Zip:<input type="text" readonly><br>
+				</div>
+					<div id="vertical_text">
+						<strong>For Official Use Only</strong>&nbsp;
+					</div>
+					<div id="typeofinspection">
+						<br>
+						<span id="three" onclick="makeCircle(this.id)">311</span><br>
+						<span id="threePu" onclick="makeCircle(this.id)">311/PU</span><br>
+						<span id="corr" onclick="makeCircle(this.id)">CORR</span><br>
+						<span id="corrPu" onclick="makeCircle(this.id)">CORR P/U</span><br>
+						<span id="fiveA" onclick="makeCircle(this.id)">5A</span><br>
+						<span id="cc" onclick="makeCircle(this.id)">CC #</span><br>
+						<span id="ccPu" onclick="makeCircle(this.id)">CC P/U</span><br>
+						<span id="fourPlus" onclick="makeCircle(this.id)">4+ CLAIMS</span>
+					</div>
+			</div>
+			<div id="defects">
+				<br>
+				<span style="position: absolute; left: 0; top: 30px;"><strong>Sidewalk Flag Defects</strong></span>
+				&nbsp; <span id="broken" onclick="makeCircle(this.id)">1</span> - Broken
+				&nbsp; <span id="undermined" onclick="makeCircle(this.id)">2</span> - Undermined
+				&nbsp; <span id="trip" onclick="makeCircle(this.id)" >3</span> - Trip Hazard
+				&nbsp; <span id="slope" onclick="makeCircle(this.id)" >4</span> - Improper Slope
+				&nbsp; <span id="hardware" onclick="makeCircle(this.id)" >5</span> - Hardware
+				&nbsp; <span id="structural-integrity" onclick="makeCircle(this.id)">6A</span> - Structural Intergrity<br>
+				<span id="freestanding" onclick="makeCircle(this.id)" >6B</span> - Freestanding
+				&nbsp; <span id="patchwork" onclick="makeCircle(this.id)" >6C</span> - Patchwork
+				&nbsp; <span id="no-sidewalk" onclick="makeCircle(this.id)" >6D</span> - No Sidewalk
+				&nbsp; <span id="asphalt" onclick="makeCircle(this.id)" >6E</span> - Asphalt
+				&nbsp; <span id="other" onclick="makeCircle(this.id)" >6</span> - Other<input type="text" size="15">
+			</div>
 		</div>
-		<div id="defects">
-			<br>
-			<span style="position: absolute; left: 0; top: 30px;"><strong>Sidewalk Flag Defects</strong></span>
-			&nbsp; <span id="broken" onclick="makeCircle(this.id)">1</span> - Broken
-			&nbsp; <span id="undermined" onclick="makeCircle(this.id)">2</span> - Undermined
-			&nbsp; <span id="trip" onclick="makeCircle(this.id)" >3</span> - Trip Hazard
-			&nbsp; <span id="slope" onclick="makeCircle(this.id)" >4</span> - Improper Slope
-			&nbsp; <span id="hardware" onclick="makeCircle(this.id)" >5</span> - Hardware
-			&nbsp; <span id="structural-integrity" onclick="makeCircle(this.id)">6A</span> - Structural Intergrity<br>
-			<span id="freestanding" onclick="makeCircle(this.id)" >6B</span> - Freestanding
-			&nbsp; <span id="patchwork" onclick="makeCircle(this.id)" >6C</span> - Patchwork
-			&nbsp; <span id="no-sidewalk" onclick="makeCircle(this.id)" >6D</span> - No Sidewalk
-			&nbsp; <span id="asphalt" onclick="makeCircle(this.id)" >6E</span> - Asphalt
-			&nbsp; <span id="other" onclick="makeCircle(this.id)" >6</span> - Other<input type="text" size="15">
-		</div>
-
-		<div id="graphCanvas">
-			<canvas id="bgcanvas"></canvas>
-			<canvas id="canvas">If you can see this text, your browser doesn't support this website.</canvas>
+		<div id="pirBody">
+			<img id="yellowBox" src="/images/yellowBox.png">
+			<div id="graphCanvas">
+				<canvas id="bgcanvas"></canvas>
+				<canvas id="canvas">If you can see this text, your browser doesn't support this website.</canvas>
 				<input type="text" id="streetOne" placeholder="Left Street">
 				<input type="text" id="streetTwo" placeholder="Right Street">
 				<input type="text" id="streetThree" placeholder="On Street">
-		</div>
-	<div id="bottomKey">
-		<div id="curb">
-      <div id="curbOne">
-				<strong>Curb Condition - <span id="brokenCurb" onclick="makeCircle(this.id)">1</span> / <span id="fiveACurb" onclick="makeCircle(this.id)">5A</span> - Approx. Ft Defective</strong><input id="curbEst" type="text" size="35">
-			</div>
-			<div id="curbTwo">
-				<strong>Curb Type: <span id="concrete" onclick="makeCircle(this.id)">C</span>= Concrete&nbsp;<span id="steelFace" onclick="makeCircle(this.id)">SF</span>= Steel Face&nbsp;<span id="granite" onclick="makeCircle(this.id)">G</span>= Granite&nbsp;<span id="blueStone" onclick="makeCircle(this.id)">BS</span>= Blue Stone&nbsp;
-			<span id="cobbleStone" onclick="makeCircle(this.id)">CS</span>= Cobble Stone&nbsp;<span id="noCurb" onclick="makeCircle(this.id)">NC</span>= No Curb<br></strong>
-		</div>
-			<img id="yellowBox" src="/images/yellowBox.png">
-		</div>
-      <div id="comments">
-        <strong>Comments: Distinctive Material</strong><input size="3" name="distMaterial" id="distinct"> - <input size="20" type="text">
-        <div id="divFor">
-					<input id="forester" size="3"><strong>Requires Inspection by Forester</strong><br>
+				<div id="curb">
+		      <div id="curbOne">
+						<strong>Curb Condition - <span id="brokenCurb" onclick="makeCircle(this.id)">1</span> / <span id="fiveACurb" onclick="makeCircle(this.id)">5A</span> - Approx. Ft Defective</strong><input id="curbEst" type="text" size="35">
+					</div>
+					<div id="curbTwo">
+						<strong>Curb Type: <span id="concrete" onclick="makeCircle(this.id)">C</span>= Concrete&nbsp;<span id="steelFace" onclick="makeCircle(this.id)">SF</span>= Steel Face&nbsp;<span id="granite" onclick="makeCircle(this.id)">G</span>= Granite&nbsp;<span id="blueStone" onclick="makeCircle(this.id)">BS</span>= Blue Stone&nbsp;
+					<span id="cobbleStone" onclick="makeCircle(this.id)">CS</span>= Cobble Stone&nbsp;<span id="noCurb" onclick="makeCircle(this.id)">NC</span>= No Curb<br></strong>
+					</div>
 				</div>
-      </div>
-      <div id="key">
-				<figure id="utilCoverFig">
-					<img src="/images/Utility Cover.png">
-					<figcaption>Utility Cover</figcaption>
-			</figure>
-			<figure>
-				<img src="/images/Hydrant.png"  >
-				<figcaption>Hydrant</figcaption>
-			</figure>
-			<figure>
-				<img src="/images/SignMeter.png"  >
-				<figcaption>Sign or Meter</figcaption>
-			</figure>
-			<figure>
-				<img src="/images/MailBox.png"  >
-				<figcaption>Mail Box</figcaption>
-			</figure>
-			<figure>
-				<img src="/images/Telephone.png"  >
-				<figcaption>Telephone</figcaption>
-			</figure>
-			<figure>
-				<img src="/images/CellarDoors.png"  >
-				<figcaption>Cellar Doors</figcaption>
-			</figure>
-			<figure>
-				<img src="/images/Pole.png"  >
-				<figcaption>Pole</figcaption>
-			</figure>
-			<figure>
-				<img src="/images/Grating.png" >
-				<figcaption>Grating</figcaption>
-			</figure>
-			<figure>
-				<img src="/images/TreePit.png"  >
-				<figcaption>Tree Pit</figcaption>
-			</figure>
-			<figure>
-				<img id="dwImg" src="/images/Driveway.png"  >
-				<figcaption>Driveway</figcaption>
-			</figure>
-			<figure id="naFlag" onclick="makeCircle(this.id)">
-				<img src="/images/Non-Assessable.png">
-				<figcaption>Non-Assessible Flag</figcaption>
-			</figure>
-			<figure id="northFig">
-				<img src="/images/North.png">
-				<figcaption>Indicate North</figcaption>
-			</figure>
-      </div>
+			</div>
+		</div>
+		<div id="bottomKey">
+	     <div id="comments">
+	        <strong>Comments: Distinctive Material</strong><input size="3" name="distMaterial" id="distinct"> - <input size="20" type="text">
+	        <div id="divFor">
+						<input id="forester" size="3"><strong>Requires Inspection by Forester</strong><br>
+					</div>
+	      </div>
+	      <div id="key">
+					<figure id="utilCoverFig">
+						<img src="/images/Utility Cover.png">
+						<figcaption>Utility Cover</figcaption>
+				</figure>
+				<figure>
+					<img src="/images/Hydrant.png"  >
+					<figcaption>Hydrant</figcaption>
+				</figure>
+				<figure>
+					<img src="/images/SignMeter.png"  >
+					<figcaption>Sign or Meter</figcaption>
+				</figure>
+				<figure>
+					<img src="/images/MailBox.png"  >
+					<figcaption>Mail Box</figcaption>
+				</figure>
+				<figure>
+					<img src="/images/Telephone.png"  >
+					<figcaption>Telephone</figcaption>
+				</figure>
+				<figure>
+					<img src="/images/CellarDoors.png"  >
+					<figcaption>Cellar Doors</figcaption>
+				</figure>
+				<figure>
+					<img src="/images/Pole.png"  >
+					<figcaption>Pole</figcaption>
+				</figure>
+				<figure>
+					<img src="/images/Grating.png" >
+					<figcaption>Grating</figcaption>
+				</figure>
+				<figure>
+					<img src="/images/TreePit.png"  >
+					<figcaption>Tree Pit</figcaption>
+				</figure>
+				<figure>
+					<img id="dwImg" src="/images/Driveway.png"  >
+					<figcaption>Driveway</figcaption>
+				</figure>
+				<figure id="naFlag" onclick="makeCircle(this.id)">
+					<img src="/images/Non-Assessable.png">
+					<figcaption>Non-Assessible Flag</figcaption>
+				</figure>
+				<figure id="northFig">
+					<img src="/images/North.png">
+					<figcaption>Indicate North</figcaption>
+				</figure>
+	      </div>
+		</div>
 	</div>
 
-	<aside>
-		<div id="containerSide">
+	<div id="emptyPage">
+		
+	</div>
+
+	<div id="containerSide">
 		<nav class="actions">
 			<ul>
 				<li><button id="line-button">Line</button></li>
@@ -218,7 +226,6 @@
 				</aside>
 				<section id="file">
 					<h3>Project</h3>
-					<!---<p>Project Name: <input id="name" value="Drawing"></p>!--->
 					<p>Save As PDF: <button id="save">Save</button></p>
 					<p>Import File: <button id="import">Import</button></p>
 					<p>Export File: <button id="export">Export</button></p>
@@ -300,12 +307,7 @@
 						<option value="12">
 							12
 						</option>
-					</select></p><!--<p>Tooltip Display Units:
-      <select>
-        <option>Primary</option>
-        <option>Secondary</option>
-      </select>
-    </p>-->
+					</select></p>
 				</section>
 				<section id="snaps">
 					<h3>Snaps</h3>
@@ -387,19 +389,12 @@
 					<ul>
 						<p>Propert Size: <button id="oneToThreeButton">1-3</button></p>
 						<button id="fourPlusButton">4+</button>
-						<p>Show Header and Footer <select id="headerFooter" onchange="showHeaderFooter()">
-							<option value="1">
-								Show
-							</option>
-							<option value="0">
-								Hide
-							</option>
-						</select></p>
+						<button id="showHeaderFooter">Show Header</button>
+						<button id="hideHeaderFooter">Hide Header</button>
 					</ul>
 				</section>
 			</div>
 		</section>
-		</div>
 	</aside>
 	<footer>
 		<span id="help"></span> <span id="coords"></span>

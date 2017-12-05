@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer')
+
 var canvas, bgcanvas, rect, scaleX, scaleY, tool, defectToWrite, symbolToDraw, touchscreen, interaction, mouseX, mouseY;
 var customInputArray = new Array();
 
@@ -435,36 +437,33 @@ function showAside() {
 }
 
 function showHeaderFooter(){
-	var selectBox = document.getElementById("headerFooter");
-	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-	if(selectedValue == 0){
-		document.getElementById("header").style.display = 'none';
-		document.getElementById("fill_in").style.display = 'none';
-		document.getElementById("defects").style.display = 'none';
-		document.getElementById("bottomKey").style.display = 'none';
-		drawing.refresh();
-	}
-	if(selectedValue == 1){
 		document.getElementById("header").style.display = 'inline-flex';
 		document.getElementById("fill_in").style.display = 'inline-flex';
 		document.getElementById("defects").style.display = 'block';
 		document.getElementById("bottomKey").style.display = 'block';
-		showAside();
-		drawing.refresh();
-	}
+		//showAside();
+}
+
+function hideHeaderFooter(){
+	document.getElementById("header").style.display = 'none';
+	document.getElementById("fill_in").style.display = 'none';
+	document.getElementById("defects").style.display = 'none';
+	document.getElementById("bottomKey").style.display = 'none';
+	document.getElementById("bgcanvas").style.removeProperty('marginTop');
+	document.getElementById("canvas").style.removeProperty('marginTop');
 }
 
 function scalePage(){
-	document.body.style.width = '27.9cm';
-	document.body.style.height = '21.6cm';
-
-	//document.getElementById("canvas").style.width = '1900px';
-	//document.getElementById("canvas").style.height = '750px';
-	document.getElementById("canvas").style.marginRight = '10px;'
-	document.getElementById("canvas").style.height = "21.6cm";
-	document.getElementById("canvas").style.width = "1900px";
-
+	document.getElementById("pirPage").style.width = '100vw';
+	document.getElementById("pirPage").style.height = '100vh';
 	document.getElementById("bgcanvas").style.display = 'none';
+	document.getElementById("leftSideImage").style.zIndex = "100";
+
+	/*//document.getElementById("canvas").style.width = '1900px';
+	//document.getElementById("canvas").style.height = '750px';
+	//document.getElementById("canvas").style.marginRight = '10px;'
+	//document.getElementById("canvas").style.height = "21.6cm";
+	document.getElementById("canvas").style.width = "1900px";
 
 	document.getElementById("bottomKey").style.width = '1900px';
 	document.getElementById("bottomKey").style.position = 'relative';
@@ -487,22 +486,21 @@ function scalePage(){
 	document.getElementById("vertical_text").style.fontSize = '14px';
 
 	document.getElementById("streetThree").style.bottom = '-600px';
-
-	document.getElementById("leftSideImage").style.zIndex = "100";
+*/
 }
 
 function unscalePage(){
-	document.body.style.height = '100vh';
-	document.body.style.width = '100vw';
-
-	document.getElementById("header").style.width = '100vw';
-
-	document.getElementById("canvas").style.removeProperty('marginRight');
-	document.getElementById("canvas").style.height = "100vh";
-
-	document.getElementById("bgcanvas").style.width = '100vw';
+	document.getElementById("pirPage").style.width = '100vw';
+	document.getElementById("pirPage").style.height = '100vh';
+	document.getElementById("bgcanvas").style.width = '98.75vw';
 	document.getElementById("bgcanvas").style.display = 'block';
+	document.getElementById("leftSideImage").style.zIndex = "0";
 
+	/*document.getElementById("header").style.width = '100vw';
+
+	//document.getElementById("canvas").style.removeProperty('marginRight');
+	//document.getElementById("canvas").style.height = "100vh";
+	document.getElementById("canvas").style.width = '98.75vw';
 	document.getElementById("bottomKey").style.width = '100vw';
 	document.getElementById("bottomKey").style.position = 'absolute';
 	document.getElementById("bottomKey").style.bottom = '0';
@@ -511,7 +509,7 @@ function unscalePage(){
 	document.getElementById("defects").style.width = '100vw';
 	document.getElementById("defects").style.fontSize = '1vw';
 
-	document.getElementById("fill_in").style.removeProperty('width');
+	document.getElementById("fill_in").style.width = '100vw';
 	document.getElementById("fill_in").style.fontSize = '1vw';
 
 	document.getElementById("comments").style.width = '100vw';
@@ -522,11 +520,9 @@ function unscalePage(){
 
 	document.getElementById("key").style.width = '100vw';
 
-	document.getElementById("streetThree").style.bottom = '-55vh';
+	document.getElementById("streetThree").style.bottom = '-50vh';
 
-	document.getElementById("leftSideImage").style.zIndex = "0";
-
-	canvas.restore();
+	canvas.restore();*/
 }
 
 drawing.hideYellowBox = function(){
@@ -545,22 +541,12 @@ drawing.savePDF = function() {
 	hideAside();
 	scalePage();
 
-	doc.addHTML(document.body, 1.6, 1.1, function() {
+	var pirPage = document.getElementById("pirPage");
+
+	doc.addHTML(pirPage, 0.5, 0.5, function() {
 		showAside();
 		doc.save(name + ".pdf");
 		unscalePage();
-		/*var blob = doc.output('blob');
-		var fileURL = URL.createObjectURL(blob);
-		var win = window.open();
-		win.document.write('<iframe src="' + fileURL + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');*/
-		/*saveAs(blob, name + ".pdf");
-		var reader = new FileReader();
-		var out = new Blob([this.response], {type: 'application/pdf'});
-		reader.onload = function(e){
-			window.location.href = reader.result;
-		}
-		reader.readAsDataURL(out);
-		doc.output('datauri');*/
 	});
 }
 
@@ -924,7 +910,6 @@ window.addEventListener("load", function() {
 	canvas = document.getElementById("canvas").getContext("2d");
 	bgcanvas = document.getElementById("bgcanvas").getContext("2d");
 
-	document.getElementById("headerFooter").value = 0;
 	showHeaderFooter();
 
 	var tempHeight = window.innerHeight;
@@ -1163,6 +1148,12 @@ function buttonClick(e) {
 		},
 		"import": function() {
 			drawing.import();
+		},
+		"showHeaderFooter": function() {
+			showHeaderFooter();
+		},
+		"hideHeaderFooter": function(){
+			hideHeaderFooter();
 		}
 	}
 	youClicked[e.target.id]();
@@ -1205,7 +1196,7 @@ function selectChange(e) {
 		"endsnap": function() {
 			drawing.drawing.endsnap = e.target.value;
 			drawing.refresh();
-		}
+		},
 	}
 	youClicked[e.target.id]();
 }

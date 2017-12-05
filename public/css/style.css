@@ -9,272 +9,439 @@ html {
 	overflow: auto;
 }
 
-#header {
-	margin-top: 1vh;
-	margin-bottom: 1vh;
-	display: inline-flex;
-	justify-content: space-between;
-	border-spacing: 1vh;
-	align: center;
-	width: 100vw;
-	background: #ffffff;
-	font-size: 1vw;
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror- HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
+/*------------------------------------------------------------
+ * Whole page
+ */
 
-
-
-#broken, #undermined, #trip, #slope, #hardware, #structural-integrity, #freestanding, #patchwork, #no-sidewalk, #asphalt, #other{
-	border: 0px solid black;
-	background-color: #ffffff;
-	width: 1vw;
-	height: 1vh;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-}
-
-#three, #threePu, #corr, #corrPu, #fiveA, #cc, #ccPu, #fourPlus{
-	border: 0px solid black;
-	background-color: #ffffff;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	vertical-align: text-top;
-}
-
-input {
-	border: 0;
-	outline: 0;
-	background: transparent;
-	border-bottom: 1px solid black;
-	text-align: center;
-	font-size: 1vw;
-}
-
-input[type="checkbox"]{
-	z-index: 2000;
-	 width: 1vw;
-	 height: 1vw;
-}
-
-input[type="text"]{
-	border: 0;
-	outline: 0;
-	background: transparent;
-	border-bottom: 1px solid black;
-	text-align: center;
-	font-size: 1vw;
-	font-weight: bold;
-}
-
-#streetOne{
-	z-index: 4;
-	position: relative;
-	height: 2vh;
-	text-align: center;
-	border-bottom: 0px solid black;
-	left: -15vw;
-	top: 2vh;
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror- HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-#streetTwo{
-	z-index: 4;
-	position: relative;
-	height: 2vh;
-	text-align: center;
-	border-bottom: 0px solid black;
-	right: -35vw;
-	top: 2vh;
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror- HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-#streetThree{
-	z-index: 4;
-	position: relative;
-	height: 2vh;
-	text-align: center;
-	border-bottom: 0px solid black;
-	bottom: -55vh;
-	left: -12vw;
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror- HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-
-.column {
-	background: #ffffff;
-	flex: auto;
-	text-align: center;
-}
-
-#sheets{
-	position: absolute;
-	right: 0;
-}
-
-#pirHead{
-	margin-left: 5vw;
-}
-
-#contracts{
-	position: absolute;
-	left:0;
-	padding-left: 5.25vw;
-	z-index: 15000;
-}
-
-.sheet_input {
-	width: 3vw;
-	background: #ffffff;
-	text-size: 3vh;
-	font-weight: bold;
-}
-#fill_in {
-	background: #ffffff;
-	width: 100vw;
-	display: inline-flex;
-	padding-left: 5.25vw;
-	font-size: .8vw;
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-#property_info {
-	text-align: center;
-	flex: auto;
-	min-width: 30vw;
-	max-width: 30vw;
-	border: 1px solid black;
-	height: auto;
-	background: #ffffff;
-	margin: 0;
-	padding: 0;
-}
-#estimate {
-	text-align: left;
-	flex: auto;
-	border: 1px solid black;
-	background: #ffffff;
-	padding-left: 2vw;
-	max-width: 40vw;
-	font-size: .8vw;
-}
-#estimateP{
-	text-align: center;
-}
-#ownership_info {
-	text-align: center;
-	flex: auto;
-	min-width: 25vw;
-	border: 1px solid black;
-	background: #ffffff;
-	margin: 0;
-	padding: 0;
-}
-#vertical_text {
-	flex: auto;
-	writing-mode: vertical-rl;
-	white-space: nowrap;
-	border: 1px solid black;
-	min-width: 1vw;
-	max-width: 2vw;
-	font-size: 1vh;
-	text-orientation: upright;
-	background: #ffffff;
-}
-#typeofinspection {
-	background: #ffffff;
-	border: 1px solid black;
-	text-align: center;
-	font-weight: bold;
-	font-size: .8vh;
-	min-width: 1vw;
-	max-width: 4vw;
-	flex: auto;
-	padding-bottom: .4vh;
-}
-#defects {
-	background: #ffffff;
-	position: relative;
-	border: 1px solid black;
-	width: 100vw;
-	height: 8vh;
-	overflow: hidden;
-	margin-left: 5.25vw;
-	margin-right: 5.25vw;
-	text-align: center;
-	font-size: 1vw;
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-
-canvas, bgcanvas {
-	position: absolute;
-	margin-left: 5.25vw;
-	margin-bottom: 5.25vh;
-	z-index: 2;
-	display: block;
-	/*max-height: 1100px;*/
+#pirPage {
 	height: 100vh;
-	width: 98.75vw;
-	border: 1px solid black;
-	border-bottom: none;
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror- HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+	width: 100vw;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	padding-right: 10vw;
+	padding-bottom: 5vh;
 }
 
-footer {
-	position: fixed;
-	z-index: 4;
-	bottom: 12vh;
-	right: 5vw;
-}
+/*-----------------------------------------------------------
+ * end of page
+ */
+
+ /*-----------------------------------------------------------
+  * header, fill ins, and defects
+	*/
+	#dotHeader{
+		width: 100vw;
+		flex-direction: row;
+		position: absolute;
+	}
+
+	#header {
+		margin-top: 1vh;
+		margin-bottom: 1vh;
+		display: inline-flex;
+		justify-content: space-between;
+		border-spacing: 1vh;
+		align: center;
+		width: 100vw;
+		background: #ffffff;
+		font-size: 1vw;
+		-webkit-touch-callout: none; /* iOS Safari */
+	    -webkit-user-select: none; /* Safari */
+	     -khtml-user-select: none; /* Konqueror- HTML */
+	       -moz-user-select: none; /* Firefox */
+	        -ms-user-select: none; /* Internet Explorer/Edge */
+	            user-select: none; /* Non-prefixed version, currently
+	                                  supported by Chrome and Opera */
+	}
+
+	#broken, #undermined, #trip, #slope, #hardware, #structural-integrity, #freestanding, #patchwork, #no-sidewalk, #asphalt, #other{
+		border: 0px solid black;
+		background-color: #ffffff;
+		width: 1vw;
+		height: 1vh;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+
+	#three, #threePu, #corr, #corrPu, #fiveA, #cc, #ccPu, #fourPlus{
+		border: 0px solid black;
+		background-color: #ffffff;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		vertical-align: text-top;
+	}
+
+	input {
+		border: 0;
+		outline: 0;
+		background: transparent;
+		border-bottom: 1px solid black;
+		text-align: center;
+		font-size: 1vw;
+	}
+
+	input[type="checkbox"]{
+		z-index: 2000;
+		 width: 1vw;
+		 height: 1vw;
+	}
+
+	input[type="text"]{
+		border: 0;
+		outline: 0;
+		background: transparent;
+		border-bottom: 1px solid black;
+		text-align: center;
+		font-size: 1vw;
+		font-weight: bold;
+	}
+
+	.column {
+		background: #ffffff;
+		flex: auto;
+		text-align: center;
+	}
+
+	#sheets{
+		position: absolute;
+		right: 0;
+	}
+
+	#pirHead{
+		margin-left: 5vw;
+	}
+
+	#contracts{
+		position: absolute;
+		left:0;
+		padding-left: 5.25vw;
+		z-index: 15000;
+	}
+
+	.sheet_input {
+		width: 3vw;
+		background: #ffffff;
+		text-size: 3vh;
+		font-weight: bold;
+	}
+	#fill_in {
+		background: #ffffff;
+		width: 98.75vw;
+		display: inline-flex;
+		padding-left: 5.25vw;
+		font-size: .8vw;
+		-webkit-touch-callout: none; /* iOS Safari */
+	    -webkit-user-select: none; /* Safari */
+	     -khtml-user-select: none; /* Konqueror HTML */
+	       -moz-user-select: none; /* Firefox */
+	        -ms-user-select: none; /* Internet Explorer/Edge */
+	            user-select: none; /* Non-prefixed version, currently
+	                                  supported by Chrome and Opera */
+	}
+	#property_info {
+		text-align: center;
+		flex: auto;
+		min-width: 30vw;
+		max-width: 30vw;
+		border: 1px solid black;
+		height: auto;
+		background: #ffffff;
+		margin: 0;
+		padding: 0;
+	}
+	#estimate {
+		text-align: left;
+		flex: auto;
+		border: 1px solid black;
+		background: #ffffff;
+		padding-left: 2vw;
+		max-width: 40vw;
+		font-size: .8vw;
+	}
+	#estimateP{
+		text-align: center;
+	}
+	#ownership_info {
+		text-align: center;
+		flex: auto;
+		min-width: 25vw;
+		border: 1px solid black;
+		background: #ffffff;
+		margin: 0;
+		padding: 0;
+	}
+	#vertical_text {
+		flex: auto;
+		writing-mode: vertical-rl;
+		white-space: nowrap;
+		border: 1px solid black;
+		min-width: 1vw;
+		max-width: 2vw;
+		font-size: 1vh;
+		text-orientation: upright;
+		background: #ffffff;
+	}
+	#typeofinspection {
+		background: #ffffff;
+		border: 1px solid black;
+		text-align: center;
+		font-weight: bold;
+		font-size: .8vh;
+		min-width: 1vw;
+		max-width: 4vw;
+		flex: auto;
+		padding-bottom: .4vh;
+	}
+	#defects {
+		background: #ffffff;
+		position: relative;
+		border: 1px solid black;
+		width: 98.75vw;
+		height: 8vh;
+		overflow: hidden;
+		margin-left: 5.25vw;
+		margin-right: 5.25vw;
+		text-align: center;
+		font-size: 1vw;
+		-webkit-touch-callout: none; /* iOS Safari */
+	    -webkit-user-select: none; /* Safari */
+	     -khtml-user-select: none; /* Konqueror HTML */
+	       -moz-user-select: none; /* Firefox */
+	        -ms-user-select: none; /* Internet Explorer/Edge */
+	            user-select: none; /* Non-prefixed version, currently
+	                                  supported by Chrome and Opera */
+	}
+	/*----------------------------------------------------------------
+	 * end of header, fill ins, and defects
+	 */
+
+	 /*----------------------------------------------------------------
+ 	 * canvas
+ 	 */
+	 #pirBody{
+		 height: inherit;
+		 width: inherit;
+		 margin-left: 5.25vw;
+		 margin-top: 36.25vh;
+		 display: flex;
+	 }
+
+	 #graphCanvas{
+		 display: flex;
+		 position: relative;
+	 }
+
+	 canvas, bgcanvas {
+		position: absolute;
+	 	z-index: 1;
+	 	width: 98.75vw;
+	 	border: 1px solid black;
+	 	border-bottom: none;
+	 	-webkit-touch-callout: none; /* iOS Safari */
+	     -webkit-user-select: none; /* Safari */
+	      -khtml-user-select: none; /* Konqueror- HTML */
+	        -moz-user-select: none; /* Firefox */
+	         -ms-user-select: none; /* Internet Explorer/Edge */
+	             user-select: none; /* Non-prefixed version, currently
+	                                   supported by Chrome and Opera */
+	 }
+
+	 footer {
+	 	position: fixed;
+	 	z-index: 4;
+	 	bottom: 12vh;
+	 	right: 5vw;
+	 }
+
+	 #streetOne{
+	 	z-index: 4;
+	 	position: relative;
+	 	height: 2vh;
+	 	text-align: center;
+	 	border-bottom: 0px solid black;
+	 	left: 2vw;
+	 	top: 2vh;
+	 	-webkit-touch-callout: none; /* iOS Safari */
+	     -webkit-user-select: none; /* Safari */
+	      -khtml-user-select: none; /* Konqueror- HTML */
+	        -moz-user-select: none; /* Firefox */
+	         -ms-user-select: none; /* Internet Explorer/Edge */
+	             user-select: none; /* Non-prefixed version, currently
+	                                   supported by Chrome and Opera */
+	 }
+
+	 #streetTwo{
+	 	z-index: 4;
+	 	position: relative;
+	 	height: 2vh;
+	 	text-align: center;
+	 	border-bottom: 0px solid black;
+	 	right: -65vw;
+	 	top: 2vh;
+	 	-webkit-touch-callout: none; /* iOS Safari */
+	     -webkit-user-select: none; /* Safari */
+	      -khtml-user-select: none; /* Konqueror- HTML */
+	        -moz-user-select: none; /* Firefox */
+	         -ms-user-select: none; /* Internet Explorer/Edge */
+	             user-select: none; /* Non-prefixed version, currently
+	                                   supported by Chrome and Opera */
+	 }
+
+	 #streetThree{
+	 	z-index: 4;
+	 	position: relative;
+	 	height: 2vh;
+	 	text-align: center;
+	 	border-bottom: 0px solid black;
+	 	bottom: -45vh;
+	 	left: 12.5vw;
+	 	-webkit-touch-callout: none; /* iOS Safari */
+	     -webkit-user-select: none; /* Safari */
+	      -khtml-user-select: none; /* Konqueror- HTML */
+	        -moz-user-select: none; /* Firefox */
+	         -ms-user-select: none; /* Internet Explorer/Edge */
+	             user-select: none; /* Non-prefixed version, currently
+	                                   supported by Chrome and Opera */
+	 }
+	 /*-----------------------------------------------------------------
+ 	 * end of canvas
+ 	 */
+
+	 /*-------------------------------------------------------------------
+ 	 * curb, comments, key
+ 	 */
+	 #bottomKey{
+	 	position: relative;
+	 	z-index: 200;
+	 	margin-left: 5.25vw;
+	 	left: 0;
+	   bottom: 0;
+	   width: 98.75vw;
+	   font-size: .85vw;
+	 	text-align: center;
+	 	-webkit-touch-callout: none; /* iOS Safari */
+	     -webkit-user-select: none; /* Safari */
+	      -khtml-user-select: none; /* Konqueror HTML */
+	        -moz-user-select: none; /* Firefox */
+	         -ms-user-select: none; /* Internet Explorer/Edge */
+	             user-select: none; /* Non-prefixed version, currently
+	                                   supported by Chrome and Opera */
+	 }
+
+	 #curb{
+	 	width: 100vw;
+	 	max-height: 8vh;
+		position: absolute;
+		bottom: 0;
+		display: flex;
+		flex-direction: row;
+	 }
+
+	 #curbOne{
+	 	position: relative;
+	 	left: 0;
+		top: 0;
+		padding-bottom: 20px;
+		z-index: 12312312312;
+	 }
+
+	 #curbTwo{
+	 	position: absolute;
+	 	align-self: flex-end;
+	 	text-align: left;
+	 	float: left;
+	 	left: 0;
+		bottom: 0;
+		z-index: 123123123123;
+	 }
+
+	 #comments{
+	 	width: 98.75vw;
+	 	display: inline-flex;
+	 	border: 1px solid black;
+	 	flex-wrap: nowrap;
+	 	height: 4vh;
+	 	align-content: space-between;
+	 }
+
+	 #divFor{
+	 	flex: auto;
+	 	margin-left: 10vw;
+
+	 }
+
+	 #key{
+	 	z-index: 10;
+	 	display: inline-flex;
+	 	width: 98.75vw;
+	 	border: 1px solid black;
+	 }
+
+	 #yellowBox{
+		position: absolute;
+		right: 0;
+		padding-right: 100px;
+		padding-bottom: 50px;
+	 	display: inline-flex;
+	 	align-self: flex-end;
+	 	max-width: 25vw;
+	 	width: 15vw;
+	 	height: 7vh;
+	 	z-index: 20;
+	 }
+
+	 img{
+	 	width: 5vh;
+	 	height: 4vh;
+	 	flex: auto;
+	 }
+
+	 figure{
+	 	white-space: nowrap;
+	 	flex: auto;
+	 	margin: auto;
+	 }
+
+	 #utilCoverFig{
+	 	margin-left: -1vw;
+	 	width: 3
+	 }
+
+	 #naFlag{
+	 	margin-left: -1vw;
+	 	margin-right: -1vw;
+	 }
+
+	 #northFig{
+	 	margin-right: 4vw;
+	 }
+	 /*-----------------------------------------------------------------
+ 	 * end of curb, comments, key
+ 	 */
+	 #emptyPage{
+		 position: absolute;
+		 width: 100vw;
+		 bottom: 0;
+		 height: 5vh;
+		 background: #FFFFFF;
+		 z-index: 1234123412341;
+	 }
 
 #leftSideImage{
 	position: absolute;
-	height: 76.4vh;
+	height: 85vh;
 	width: 3vw;
 	left: 0;
 	padding-top: 3.3cm;
-	margin-left: .8cm;
+	margin-left: .6cm;
 	z-index: 0;
 }
 
 #containerSide{
+	position: fixed;
+	top: 0;
+	z-index: 123123123;
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
@@ -335,116 +502,10 @@ footer {
 	display: none;
 }
 
-#dotHeader{
-	width: 100vw;
-	height: 100vh;
-	position: relative;
-}
-
-#bottomKey{
-	position: absolute;
-	z-index: 200;
-	margin-left: 5.25vw;
-	left: 0;
-  bottom: 0;
-  width: 100vw;
-	height: 0;
-  font-size: .85vw;
-	text-align: center;
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-
-#curb{
-	width: 100vw;
-	max-height: 8vh;
-	display: flex;
-	justify-content: flex-end;
-}
-
-#curbOne{
-	align-self: flex-start;
-	float: left;
-	position: absolute;
-	left: 0;
-}
-
-#curbTwo{
-	position: absolute;
-	align-self: flex-end;
-	text-align: left;
-	float: left;
-	left: 0;
-}
-
-#comments{
-	width: 100vw;
-	display: inline-flex;
-	border: 1px solid black;
-	flex-wrap: nowrap;
-	height: 4vh;
-	align-content: space-between;
-}
-
-#divFor{
-	flex: auto;
-	margin-left: 10vw;
-
-}
-
-#key{
-	z-index: 10;
-	display: inline-flex;
-	width: 100vw;
-	border: 1px solid black;
-}
-
 #helpJust{
 	width: 100vw;
 	height: 0;
 	display: inline-block;
-}
-
-#yellowBox{
-	display: inline-flex;
-	align-self: flex-end;
-	margin-right: 10vw;
-	max-width: 25vw;
-	width: 15vw;
-	height: 7vh;
-	z-index: 20;
-	float: right;
-}
-
-img{
-	width: 5vh;
-	height: 4vh;
-	flex: auto;
-}
-
-figure{
-	white-space: nowrap;
-	flex: auto;
-	margin: auto;
-}
-
-#utilCoverFig{
-	margin-left: -1vw;
-	width: 3
-}
-
-#naFlag{
-	margin-left: -1vw;
-	margin-right: -1vw;
-}
-
-#northFig{
-	margin-right: 4vw;
 }
 
 /* division */
