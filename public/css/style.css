@@ -21,6 +21,7 @@ html {
 	flex-direction: column;
 	padding-right: 10vw;
 	padding-bottom: 5vh;
+	position: relative;
 }
 
 /*-----------------------------------------------------------
@@ -33,7 +34,7 @@ html {
 	#dotHeader{
 		width: 100vw;
 		flex-direction: row;
-		position: absolute;
+		position: relative;
 	}
 
 	#header {
@@ -223,7 +224,7 @@ html {
 		 height: inherit;
 		 width: inherit;
 		 margin-left: 5.25vw;
-		 margin-top: 36.25vh;
+		 margin-top: auto;
 		 display: flex;
 	 }
 
@@ -236,8 +237,8 @@ html {
 		position: absolute;
 	 	z-index: 1;
 	 	width: 98.75vw;
-	 	border: 1px solid black;
-	 	border-bottom: none;
+		border: 1px solid black;
+		border-bottom: none;
 	 	-webkit-touch-callout: none; /* iOS Safari */
 	     -webkit-user-select: none; /* Safari */
 	      -khtml-user-select: none; /* Konqueror- HTML */
@@ -422,6 +423,7 @@ html {
 	 #emptyPage{
 		 position: absolute;
 		 width: 100vw;
+		 margin-left: 5.25vw;
 		 bottom: 0;
 		 height: 5vh;
 		 background: #FFFFFF;

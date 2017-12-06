@@ -458,35 +458,6 @@ function scalePage(){
 	document.getElementById("pirPage").style.height = '100vh';
 	document.getElementById("bgcanvas").style.display = 'none';
 	document.getElementById("leftSideImage").style.zIndex = "100";
-
-	/*//document.getElementById("canvas").style.width = '1900px';
-	//document.getElementById("canvas").style.height = '750px';
-	//document.getElementById("canvas").style.marginRight = '10px;'
-	//document.getElementById("canvas").style.height = "21.6cm";
-	document.getElementById("canvas").style.width = "1900px";
-
-	document.getElementById("bottomKey").style.width = '1900px';
-	document.getElementById("bottomKey").style.position = 'relative';
-	document.getElementById("bottomKey").style.top = '600px';
-
-	document.getElementById("defects").style.width = '1900px';
-	document.getElementById("defects").style.fontSize = '20px';
-
-	document.getElementById("fill_in").style.width = '1900px';
-	document.getElementById("fill_in").style.fontSize = '20px';
-
-	document.getElementById("header").style.width = '1900px';
-
-	document.getElementById("comments").style.width = '1900px';
-
-	document.getElementById("key").style.width = '1900px';
-
-	document.getElementById("typeofinspection").style.fontSize = '14px';
-
-	document.getElementById("vertical_text").style.fontSize = '14px';
-
-	document.getElementById("streetThree").style.bottom = '-600px';
-*/
 }
 
 function unscalePage(){
@@ -495,34 +466,6 @@ function unscalePage(){
 	document.getElementById("bgcanvas").style.width = '98.75vw';
 	document.getElementById("bgcanvas").style.display = 'block';
 	document.getElementById("leftSideImage").style.zIndex = "0";
-
-	/*document.getElementById("header").style.width = '100vw';
-
-	//document.getElementById("canvas").style.removeProperty('marginRight');
-	//document.getElementById("canvas").style.height = "100vh";
-	document.getElementById("canvas").style.width = '98.75vw';
-	document.getElementById("bottomKey").style.width = '100vw';
-	document.getElementById("bottomKey").style.position = 'absolute';
-	document.getElementById("bottomKey").style.bottom = '0';
-	document.getElementById("bottomKey").style.removeProperty('top');
-
-	document.getElementById("defects").style.width = '100vw';
-	document.getElementById("defects").style.fontSize = '1vw';
-
-	document.getElementById("fill_in").style.width = '100vw';
-	document.getElementById("fill_in").style.fontSize = '1vw';
-
-	document.getElementById("comments").style.width = '100vw';
-
-	document.getElementById("typeofinspection").style.fontSize = '.8vh';
-
-	document.getElementById("vertical_text").style.fontSize = '1vh';
-
-	document.getElementById("key").style.width = '100vw';
-
-	document.getElementById("streetThree").style.bottom = '-50vh';
-
-	canvas.restore();*/
 }
 
 drawing.hideYellowBox = function(){
@@ -549,6 +492,42 @@ drawing.savePDF = function() {
 		unscalePage();
 	});
 }
+
+/*
+ * clone page and put under old page(s)
+var pageCounter = 0;
+function newPage(){
+	var originalCanvas = document.getElementById("pirPage");
+	var clone = originalCanvas.cloneNode(true);
+	clone.id = "pirPage" + ++pageCounter;
+	originalCanvas.parentNode.appendChild(clone);
+	copyComputedStyle(originalCanvas, clone);
+	originalCanvas.drawing.refresh();
+}
+
+var realStyle = function(_elem, _style){
+	var computedStyle;
+	if(typeof _elem.currentStyle != 'undefined'){
+		computedStyle = _elem.currentStyle;
+	} else{
+		computedStyle = document.defaultView.getComputedStyle(_elem, null);
+	}
+	return _style ? computedStyle[_style] : computedStyle;
+};
+
+var copyComputedStyle = function(src, dest){
+	var s = realStyle(src);
+	for(var i in s){
+		if( typeof i == "string" && i != "cssText" && !/\d/.text(i)){
+			try{
+				dest.style[i] = s[i];
+				if(i == "font"){
+					dest.style.fontSize = s.fontSize;
+				}
+			} catch (e){}
+		}
+	}
+}; */
 
 var mouse = new Object();
 mouse.click = function(e) {
@@ -1117,7 +1096,7 @@ function buttonClick(e) {
 			drawing.clear();
 		},
 		"newPage": function(){
-			drawing.clear();
+			newPage();
 		},
 		"info": function() {
 			// var dpi = "<table><tr><td width=\"60%\">Window Width:</td><td>" + document.body.clientWidth;
