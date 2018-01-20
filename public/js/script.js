@@ -1,5 +1,3 @@
-const nodemailer = require('nodemailer')
-
 var canvas, bgcanvas, rect, scaleX, scaleY, tool, defectToWrite, symbolToDraw, touchscreen, interaction, mouseX, mouseY;
 var customInputArray = new Array();
 

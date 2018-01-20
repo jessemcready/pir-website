@@ -16,7 +16,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
 
-	<script src="/js/bundle.js"></script>
 	<script src="/js/script.js"></script>
 	<div id="pirPage">
 		<img id="leftSideImage" src="/images/leftSide.png">
@@ -34,7 +33,7 @@
 			</div>
 			<div id="fill_in">
 				<div id="property_info">
-					<strong>Property Information</strong><br><br>
+					<h2>Property Information</h2><br />
 					Property Address <input id="property-address1" size="25" type="text">
 					<input id="property-address2" size="35" type="text"><br>
 					Borough:<input id="borough" size="10" type="text"> BLDG CL:<input id="bldgCl" size="10" type="text"><br><br>
@@ -44,7 +43,7 @@
 					<br>
 				</div>
 				<div id="estimate">
-					<p id="estimateP"><strong><font size="12px"></font>Estimate</strong><br></p>
+					<h2 id="estimateP">Estimate</h2><br />
 					The estimated amount of sidewalk to be replaced <input id="swEst" type="text" size="10"> square feet.<br><br>
 					Please be advised that this is an estimate based on visual inspection. The actual<br>
 					condition of your sidewalk at the time of excavation may require that more<br>
@@ -54,19 +53,18 @@
 					<br><br><input id="extraComm" size="40" type="text">
 				</div>
 				<div id="ownership_info">
-					<strong>Ownership Information</strong><br>
+					<h2>Ownership Information</h2>
 					<br>
-					Violation #<input type="text" readonly><br><br>
+					Violation #<input type="text"><br><br>
 					Owner(s):<input type="text" readonly><br><br>
 					Address: <input type="text" readonly><br><br>
 					<input size="25" type="text" readonly><br><br>
 					City/State/Zip:<input type="text" readonly><br>
 				</div>
 					<div id="vertical_text">
-						<strong>For Official Use Only</strong>&nbsp;
+						<p>FOR OFFICIAL USE ONLY</p>
 					</div>
 					<div id="typeofinspection">
-						<br>
 						<span id="three" onclick="makeCircle(this.id)">311</span><br>
 						<span id="threePu" onclick="makeCircle(this.id)">311/PU</span><br>
 						<span id="corr" onclick="makeCircle(this.id)">CORR</span><br>
@@ -79,18 +77,18 @@
 			</div>
 			<div id="defects">
 				<br>
-				<span style="position: absolute; left: 0; top: 30px;"><strong>Sidewalk Flag Defects</strong></span>
-				&nbsp; <span id="broken" onclick="makeCircle(this.id)">1</span> - Broken
-				&nbsp; <span id="undermined" onclick="makeCircle(this.id)">2</span> - Undermined
-				&nbsp; <span id="trip" onclick="makeCircle(this.id)" >3</span> - Trip Hazard
-				&nbsp; <span id="slope" onclick="makeCircle(this.id)" >4</span> - Improper Slope
-				&nbsp; <span id="hardware" onclick="makeCircle(this.id)" >5</span> - Hardware
-				&nbsp; <span id="structural-integrity" onclick="makeCircle(this.id)">6A</span> - Structural Intergrity<br>
-				<span id="freestanding" onclick="makeCircle(this.id)" >6B</span> - Freestanding
-				&nbsp; <span id="patchwork" onclick="makeCircle(this.id)" >6C</span> - Patchwork
-				&nbsp; <span id="no-sidewalk" onclick="makeCircle(this.id)" >6D</span> - No Sidewalk
-				&nbsp; <span id="asphalt" onclick="makeCircle(this.id)" >6E</span> - Asphalt
-				&nbsp; <span id="other" onclick="makeCircle(this.id)" >6</span> - Other<input type="text" size="15">
+				<span style="position: absolute; left: 0; top: 40px; font-size: 20px;"><strong>Sidewalk Flag Defects</strong></span>
+				&nbsp; <span class="defectText" id="broken" onclick="makeCircle(this.id)">1 - Broken</span>
+				&nbsp; <span class="defectText" id="undermined" onclick="makeCircle(this.id)">2 - Undermined</span>
+				&nbsp; <span class="defectText" id="trip" onclick="makeCircle(this.id)" >3 - Trip Hazard</span>
+				&nbsp; <span class="defectText" id="slope" onclick="makeCircle(this.id)" >4 - Improper Slope</span>
+				&nbsp; <span class="defectText" id="hardware" onclick="makeCircle(this.id)" >5 - Hardware</span>
+				&nbsp; <span class="defectText" id="structural-integrity" onclick="makeCircle(this.id)">6A - Structural Intergrity</span><br>
+				<span class="defectText" id="freestanding" onclick="makeCircle(this.id)" >6B - Freestanding</span>
+				&nbsp; <span class="defectText" id="patchwork" onclick="makeCircle(this.id)" >6C - Patchwork</span>
+				&nbsp; <span class="defectText" id="no-sidewalk" onclick="makeCircle(this.id)" >6D - No Sidewalk</span>
+				&nbsp; <span class="defectText" id="asphalt" onclick="makeCircle(this.id)" >6E - Asphalt</span>
+				&nbsp; <span class="defectText" id="other" onclick="makeCircle(this.id)" >6 - Other<input type="text" size="15"></span>
 			</div>
 		</div>
 		<div id="pirBody">
@@ -114,9 +112,9 @@
 		</div>
 		<div id="bottomKey">
 	     <div id="comments">
-	        <strong>Comments: Distinctive Material</strong><input size="3" name="distMaterial" id="distinct"> - <input size="20" type="text">
+	        <strong>Comments: Distinctive Material</strong><input type="text" size="3" name="distMaterial" id="distinct"> - <input size="20" type="text">
 	        <div id="divFor">
-						<input id="forester" size="3"><strong>Requires Inspection by Forester</strong><br>
+						<input id="forester" size="3" type="text"><strong>Requires Inspection by Forester</strong><br>
 					</div>
 	      </div>
 	      <div id="key">
