@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-height, initial-scale=0.7, user-scalable=0"/>
 	<meta content="yes" name="mobile-web-app-capable"/>
 	<meta content="Website to create PIR's for the NYC DOT" name="description"/>
-	<title>Really Sketch</title>
+	<title>PIR Sketch</title>
 	<link href="/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -90,27 +90,29 @@
 				&nbsp; <span class="defectText" id="asphalt" onclick="makeCircle(this.id)" >6E - Asphalt</span>
 				&nbsp; <span class="defectText" id="other" onclick="makeCircle(this.id)" >6 - Other<input type="text" size="15"></span>
 			</div>
-		</div>
+		<!--</div>-->
 		<div id="pirBody">
-			<img id="yellowBox" src="/images/yellowBox.png">
+
 			<div id="graphCanvas">
 				<canvas id="bgcanvas"></canvas>
 				<canvas id="canvas">If you can see this text, your browser doesn't support this website.</canvas>
 				<input type="text" id="streetOne" placeholder="Left Street">
 				<input type="text" id="streetTwo" placeholder="Right Street">
 				<input type="text" id="streetThree" placeholder="On Street">
-				<div id="curb">
-		      <div id="curbOne">
-						<strong>Curb Condition - <span id="brokenCurb" onclick="makeCircle(this.id)">1</span> / <span id="fiveACurb" onclick="makeCircle(this.id)">5A</span> - Approx. Ft Defective</strong><input id="curbEst" type="text" size="35">
-					</div>
-					<div id="curbTwo">
-						<strong>Curb Type: <span id="concrete" onclick="makeCircle(this.id)">C</span>= Concrete&nbsp;<span id="steelFace" onclick="makeCircle(this.id)">SF</span>= Steel Face&nbsp;<span id="granite" onclick="makeCircle(this.id)">G</span>= Granite&nbsp;<span id="blueStone" onclick="makeCircle(this.id)">BS</span>= Blue Stone&nbsp;
-					<span id="cobbleStone" onclick="makeCircle(this.id)">CS</span>= Cobble Stone&nbsp;<span id="noCurb" onclick="makeCircle(this.id)">NC</span>= No Curb<br></strong>
-					</div>
-				</div>
 			</div>
 		</div>
+	</div>
 		<div id="bottomKey">
+			<img id="yellowBox" src="/images/yellowBox.png">
+			<div id="curb">
+				<div id="curbOne">
+					<strong>Curb Condition - <span id="brokenCurb" onclick="makeCircle(this.id)">1</span> / <span id="fiveACurb" onclick="makeCircle(this.id)">5A</span> - Approx. Ft Defective</strong><input id="curbEst" type="text" size="35">
+				</div>
+				<div id="curbTwo">
+					<strong>Curb Type: <span id="concrete" onclick="makeCircle(this.id)">C</span>= Concrete&nbsp;<span id="steelFace" onclick="makeCircle(this.id)">SF</span>= Steel Face&nbsp;<span id="granite" onclick="makeCircle(this.id)">G</span>= Granite&nbsp;<span id="blueStone" onclick="makeCircle(this.id)">BS</span>= Blue Stone&nbsp;
+				<span id="cobbleStone" onclick="makeCircle(this.id)">CS</span>= Cobble Stone&nbsp;<span id="noCurb" onclick="makeCircle(this.id)">NC</span>= No Curb<br></strong>
+				</div>
+			</div>
 	     <div id="comments">
 	        <strong>Comments: Distinctive Material</strong><input type="text" size="3" name="distMaterial" id="distinct"> - <input size="20" type="text">
 	        <div id="divFor">
@@ -168,10 +170,6 @@
 				</figure>
 	      </div>
 		</div>
-	</div>
-
-	<div id="emptyPage">
-
 	</div>
 
 	<div id="containerSide">

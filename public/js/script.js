@@ -82,6 +82,11 @@ function snap(x, y, u, v) {
 			}
 		}
 	}
+	document.getElementById("coords").innerHTML = coordX + ", " + coordY;
+  document.getElementById("coords").style.display = "block";
+  document.getElementById("coords").style.left = (mouseX + 64) + "px";
+  document.getElementById("coords").style.top = (mouseY - 64) + "px";
+
 	return {
 		x: snapped.x,
 		y: snapped.y
@@ -91,7 +96,7 @@ var drawing = new Object();
 drawing.drawing = new Object();
 drawing.drawing.grid = 100 / .6;
 drawing.drawing.divisions = 10;
-drawing.drawing.gridsnap = .5;
+drawing.drawing.gridsnap = 1;
 drawing.drawing.lengthsnap = 0;
 drawing.drawing.lensnap = drawing.drawing.grid / drawing.drawing.divisions * drawing.drawing.lengthsnap;
 drawing.drawing.anglesnap = 0;
@@ -491,42 +496,6 @@ drawing.savePDF = function() {
 	});
 }
 
-/*
- * clone page and put under old page(s)
-var pageCounter = 0;
-function newPage(){
-	var originalCanvas = document.getElementById("pirPage");
-	var clone = originalCanvas.cloneNode(true);
-	clone.id = "pirPage" + ++pageCounter;
-	originalCanvas.parentNode.appendChild(clone);
-	copyComputedStyle(originalCanvas, clone);
-	originalCanvas.drawing.refresh();
-}
-
-var realStyle = function(_elem, _style){
-	var computedStyle;
-	if(typeof _elem.currentStyle != 'undefined'){
-		computedStyle = _elem.currentStyle;
-	} else{
-		computedStyle = document.defaultView.getComputedStyle(_elem, null);
-	}
-	return _style ? computedStyle[_style] : computedStyle;
-};
-
-var copyComputedStyle = function(src, dest){
-	var s = realStyle(src);
-	for(var i in s){
-		if( typeof i == "string" && i != "cssText" && !/\d/.text(i)){
-			try{
-				dest.style[i] = s[i];
-				if(i == "font"){
-					dest.style.fontSize = s.fontSize;
-				}
-			} catch (e){}
-		}
-	}
-}; */
-
 var mouse = new Object();
 mouse.click = function(e) {
 	if (e.touches) {
@@ -887,7 +856,7 @@ window.addEventListener("load", function() {
 	canvas = document.getElementById("canvas").getContext("2d");
 	bgcanvas = document.getElementById("bgcanvas").getContext("2d");
 
-	showHeaderFooter();
+	hideHeaderFooter();
 
 	var tempHeight = window.innerHeight;
 	var tempRatio = canvas.width/canvas.height;
@@ -1080,6 +1049,10 @@ function buttonClick(e) {
 			document.getElementById("options").style.display = "none";
 		},
 		"newBlock": function(){
+			$('input').val('');
+			drawing.clear();
+		},
+		"newLot": function(){
 			$('#sheet_input').val('');
 			$('#property-address1').val('');
 			$('#property-address2').val('');
@@ -1089,12 +1062,8 @@ function buttonClick(e) {
 			$('#extraComm').val('');
 			drawing.clear();
 		},
-		"newLot": function(){
-			$('input').val('');
-			drawing.clear();
-		},
 		"newPage": function(){
-			newPage();
+			drawing.clear();
 		},
 		"info": function() {
 			// var dpi = "<table><tr><td width=\"60%\">Window Width:</td><td>" + document.body.clientWidth;
