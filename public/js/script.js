@@ -82,10 +82,10 @@ function snap(x, y, u, v) {
 			}
 		}
 	}
-	document.getElementById("coords").innerHTML = coordX + ", " + coordY;
+	/*document.getElementById("coords").innerHTML = coordX + ", " + coordY;
   document.getElementById("coords").style.display = "block";
-  document.getElementById("coords").style.left = (mouseX + 64) + "px";
-  document.getElementById("coords").style.top = (mouseY - 64) + "px";
+  document.getElementById("coords").style.left = mouseX + "px";
+  document.getElementById("coords").style.top = mouseY + "px";*/
 
 	return {
 		x: snapped.x,
@@ -94,7 +94,7 @@ function snap(x, y, u, v) {
 }
 var drawing = new Object();
 drawing.drawing = new Object();
-drawing.drawing.grid = 100 / .6;
+drawing.drawing.grid = 100 / 1;
 drawing.drawing.divisions = 10;
 drawing.drawing.gridsnap = 1;
 drawing.drawing.lengthsnap = 0;
@@ -113,11 +113,11 @@ drawing.clear = function() {
 	this.refresh();
 }
 drawing.refresh = function() {
-	canvas.canvas.width = document.documentElement.clientWidth; //window.innerWidth;
-	canvas.canvas.height = Math.max(document.body.clientHeight, document.documentElement.clientHeight); //window.innerHeight;
+	canvas.canvas.width = window.innerWidth; //document.documentElement.clientWidth;
+	canvas.canvas.height = window.innerHeight; //Math.max(document.body.clientHeight, document.documentElement.clientHeight);
 	canvas.translate(0.5, 0.5);
-	bgcanvas.canvas.width = document.body.clientWidth - canvas.canvas.style.marginLeft; //window.innerWidth;
-	bgcanvas.canvas.height = Math.max(document.body.clientHeight, document.documentElement.clientHeight); //window.innerHeight;
+	bgcanvas.canvas.width = window.innerWidth; //document.body.clientWidth - canvas.canvas.style.marginLeft;
+	bgcanvas.canvas.height = window.innerHeight; //Math.max(document.body.clientHeight, document.documentElement.clientHeight);
 	bgcanvas.translate(0.5, 0.5);
 	canvas.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
 	bgcanvas.fillStyle = "#fff";
@@ -499,8 +499,6 @@ drawing.savePDF = function() {
 var mouse = new Object();
 mouse.click = function(e) {
 	if (e.touches) {
-		//mouseX = Math.round(e.changedTouches[0].pageX * $("canvas").width() + document.documentElement.scrollLeft * scaleX);
-		//mouseY = Math.round(e.changedTouches[0].pageY * $("canvas").height() + document.documentElement.scrollTop * scaleY);
 		mouseX = Math.round((e.changedTouches[0].pageX - rect.left) / (rect.right - rect.left) * $("canvas").width() + document.documentElement.scrollLeft * scaleX);
 		mouseY = Math.round((e.changedTouches[0].pageY - rect.top) / (rect.bottom - rect.top) * $("canvas").height() + document.documentElement.scrollTop * scaleY);
 	} else {
@@ -511,8 +509,6 @@ mouse.click = function(e) {
 }
 mouse.move = function(e) {
 	if (e.touches) {
-		//mouseX = Math.round(e.changedTouches[0].pageX * $("canvas").width() + document.documentElement.scrollLeft * scaleX);
-		//mouseY = Math.round(e.changedTouches[0].pageY * $("canvas").height() + document.documentElement.scrollTop * scaleY);
 		mouseX = Math.round((e.changedTouches[0].pageX - rect.left) / (rect.right - rect.left) * $("canvas").width() + document.documentElement.scrollLeft * scaleX);
 		mouseY = Math.round((e.changedTouches[0].pageY - rect.top) / (rect.bottom - rect.top) * $("canvas").height() + document.documentElement.scrollTop * scaleY);
 		e.preventDefault();
@@ -856,14 +852,14 @@ window.addEventListener("load", function() {
 	canvas = document.getElementById("canvas").getContext("2d");
 	bgcanvas = document.getElementById("bgcanvas").getContext("2d");
 
-	hideHeaderFooter();
+	//hideHeaderFooter();
 
-	var tempHeight = window.innerHeight;
+	/*var tempHeight = window.innerHeight;
 	var tempRatio = canvas.width/canvas.height;
 	var tempWidth = tempHeight * tempRatio;
 
 	canvas.canvas.style.width = tempWidth + 'px';
-	canvas.canvas.style.height = tempHeight + 'px';
+	canvas.canvas.style.height = tempHeight + 'px';*/
 
 	canvas.canvas.addEventListener("mousedown", mouse.click);
 	canvas.canvas.addEventListener("mousemove", mouse.move);
@@ -894,6 +890,7 @@ window.addEventListener("load", function() {
 	tool = new Line();
 	drawing.refresh();
 });
+
 window.addEventListener("resize", function() {
 	drawing.refresh();
 });

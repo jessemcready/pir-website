@@ -9,6 +9,16 @@ html {
 	overflow: auto;
 }
 
+/* -----------------------------------------------------------
+ * Media Queries
+ */
+
+/* Tablets/Ipad's in Portrait */
+
+ /* -----------------------------------------------------------
+  * End Media Queries
+  */
+
 /*------------------------------------------------------------
  * Whole page
  */
@@ -246,7 +256,7 @@ html {
 	 }
 
 	 canvas, bgcanvas {
-		 height: 100v;
+		 height: 100vh;
 		 width: 100vw;
 		 border: 1px solid black;
 		position: absolute;
@@ -293,7 +303,7 @@ html {
 	 	height: 2vh;
 	 	text-align: center;
 	 	border-bottom: 0px solid black;
-	 	right: -60vw;
+	 	right: -50vw;
 	 	top: 2vh;
 	 	-webkit-touch-callout: none; /* iOS Safari */
 	     -webkit-user-select: none; /* Safari */
