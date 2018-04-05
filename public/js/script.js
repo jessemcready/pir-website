@@ -411,37 +411,12 @@ drawing.closeOptions = function() {
 }
 
 function hideAside() {
-  document.getElementById("line-button").style.display = 'none';
-  document.getElementById("arc-button").style.display = 'none';
-  document.getElementById("eraser-button").style.display = 'none';
-  document.getElementById("highlight-button").style.display = 'none';
-  document.getElementById("undo-button").style.display = 'none';
-  document.getElementById("options-button").style.display = 'none';
-  document.getElementById("help").style.display = 'none';
-  document.getElementById("coords").style.display = 'none';
-  document.getElementById("defectsSymbols").style.display = 'none';
-  document.getElementById("newLot").style.display = 'none';
-  document.getElementById("newPage").style.display = 'none';
-  document.getElementById("customInput").style.display = 'none';
-  document.getElementById("customInputButton").style.display = 'none';
-  document.getElementById("newBlock").style.display = 'none';
+  document.getElementById("dotHeader").style.zIndex = '1';
+  document.getElementById("containerSide").style.display = 'none';
 }
 
 function showAside() {
-  document.getElementById("line-button").style.display = 'block';
-  document.getElementById("arc-button").style.display = 'block';
-  document.getElementById("eraser-button").style.display = 'block';
-  document.getElementById("undo-button").style.display = 'block';
-  document.getElementById("options-button").style.display = 'block';
-  document.getElementById("help").style.display = 'block';
-  document.getElementById("coords").style.display = 'block';
-  document.getElementById("highlight-button").style.display = 'block';
-  document.getElementById("defectsSymbols").style.display = 'flex';
-  document.getElementById("newLot").style.display = 'block';
-  document.getElementById("newPage").style.display = 'block';
-  document.getElementById("customInput").style.display = 'flex';
-  document.getElementById("customInputButton").style.display = 'flex';
-  document.getElementById("newBlock").style.display = 'block';
+  document.getElementById("containerSide").style.display = 'flex';
 }
 
 function showHeaderFooter() {
@@ -449,7 +424,6 @@ function showHeaderFooter() {
   document.getElementById("fill_in").style.display = 'inline-flex';
   document.getElementById("defects").style.display = 'block';
   document.getElementById("bottomKey").style.display = 'block';
-  //showAside();
 }
 
 function hideHeaderFooter() {
@@ -462,18 +436,15 @@ function hideHeaderFooter() {
 }
 
 function scalePage() {
-  document.getElementById("pirPage").style.width = '100%';
-  document.getElementById("pirPage").style.height = '100vh';
+  //document.getElementById("pirPage").style.width = '100%';
+  //document.getElementById("pirPage").style.height = '100vh';
   document.getElementById("bgcanvas").style.display = 'none';
-  document.getElementById("leftSideImage").style.zIndex = "100";
 }
 
 function unscalePage() {
   document.getElementById("pirPage").style.width = '100%';
   document.getElementById("pirPage").style.height = '100vh';
-  document.getElementById("bgcanvas").style.width = '100%';
   document.getElementById("bgcanvas").style.display = 'block';
-  document.getElementById("leftSideImage").style.zIndex = "0";
 }
 
 drawing.hideYellowBox = function() {
@@ -494,7 +465,7 @@ drawing.savePDF = function() {
 
   var pirPage = document.getElementById("pirPage");
 
-  doc.addHTML(pirPage, 0, 0, function() {
+  doc.addHTML(pirPage, 0.5, 0.5, function() {
 		doc.save(name + ".pdf");
 		showAside();
     unscalePage();
@@ -864,15 +835,6 @@ function makeCircle(id) {
 window.addEventListener("load", function() {
   canvas = document.getElementById("canvas").getContext("2d");
   bgcanvas = document.getElementById("bgcanvas").getContext("2d");
-
-  //hideHeaderFooter();
-
-  /*var tempHeight = window.innerHeight;
-	var tempRatio = canvas.width/canvas.height;
-	var tempWidth = tempHeight * tempRatio;
-
-	canvas.canvas.style.width = tempWidth + 'px';
-	canvas.canvas.style.height = tempHeight + 'px';*/
 
   canvas.canvas.addEventListener("mousedown", mouse.click);
   canvas.canvas.addEventListener("mousemove", mouse.move);

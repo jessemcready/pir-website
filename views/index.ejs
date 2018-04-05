@@ -41,16 +41,29 @@
 			</div>
 			<div id="fill_in">
 				<div id="property_info">
-					<h2>Property Information</h2><br /> Property Address <input id="property-address1" size="25" type="text">
+					<p style="text-align: center; font-size: 14px;">
+						Property Information
+					</p>Property Address <input id="property-address1" size="20" type="text">
 					<input id="property-address2" size="30" type="text"><br> Borough:
-					<input id="borough" size="10" type="text"> BLDG CL:<input id="bldgCl" size="10" type="text"><br><br> Block:
-					<input id="block" size="8" type="text"> Lot:<input id="lot" size="6" type="text"> CB: <input id="cb" size="6" type="text"><br><br> Inspected By:<input id="inspectorInitials" size="8" type="text"> Date:<input id="dateOfInsp" size="10" type="text"><br><br>					Property Dimensions:<input id="dim" type="text">
+					<input id="borough" size="10" type="text"> BLDG CL:<input id="bldgCl" size="5" type="text"><br><br> Block:
+					<input id="block" size="6" type="text"> Lot:<input id="lot" size="4" type="text"> CB: <input id="cb" size="3" type="text"><br><br>
+					Inspected By:<input id="inspectorInitials" size="3" type="text"> Date:<input id="dateOfInsp" size="12" type="text"><br><br>
+					Property Dimensions:<input id="dim" size="17" type="text">
 					<br>
 				</div>
 				<div id="estimate">
-					<h2 id="estimateP">Estimate</h2><br /> The estimated amount of sidewalk to be replaced <input id="swEst" type="text" size="10"> square feet.<br><br> Please be advised that this is an estimate based on visual inspection. The actual<br> condition of your sidewalk at the time of excavation
-					may require that more<br> sidewalk be replaced at your expense.<br><br> All defects are the responsibility of the property owner. The defects shown<br> reflect the condition of your sidewalk on the date of this report.
-					<br><br><input id="extraComm" size="40" type="text">
+					<p id="estimateP">Estimate</p>
+					<p style="font-size: 16px;">
+						The estimated amount of sidewalk to be replaced <input id="swEst" type="text" size="10"> <br />square feet.
+					</p>
+					<p style="font-size: 13px;">
+						Please be advised that this is an estimate based on visual inspection. The actual condition of your sidewalk at the time of excavation
+						may require that more sidewalk be replaced at your expense.
+					</p>
+					<p style="font-size: 13px;">
+						All defects are the responsibility of the property owner. The defects shown reflect the condition of your sidewalk on the date of this report.
+					</p>
+					<input id="extraComm" size="40" type="text">
 				</div>
 				<div id="ownership_info">
 					<h2>Ownership Information</h2>
@@ -63,23 +76,26 @@
 					<p>FOR OFFICIAL USE ONLY</p>
 				</div>
 				<div id="typeofinspection">
-					<span id="three" onclick="makeCircle(this.id)">311</span><br>
-					<span id="threePu" onclick="makeCircle(this.id)">311/PU</span><br>
-					<span id="corr" onclick="makeCircle(this.id)">CORR</span><br>
-					<span id="corrPu" onclick="makeCircle(this.id)">CORR P/U</span><br>
-					<span id="fiveA" onclick="makeCircle(this.id)">5A</span><br>
-					<span id="reinspection" onclick="makeCircle(this.id)">RI</span><br>
-					<span id="cc" onclick="makeCircle(this.id)">CC #</span><br>
-					<span id="ccPu" onclick="makeCircle(this.id)">CC P/U</span><br>
-					<span id="fourPlus" onclick="makeCircle(this.id)">4+ CLAIMS</span>
+					<div id="types">
+						<p class="types" id="three" onclick="makeCircle(this.id)">311</p>
+						<p class="types" id="threePu" onclick="makeCircle(this.id)">311/PU</p>
+						<p class="types" id="corr" onclick="makeCircle(this.id)">CORR</p>
+						<p class="types" id="corrPu" onclick="makeCircle(this.id)">CORR P/U</p>
+						<p class="types" id="fiveA" onclick="makeCircle(this.id)">5A</p>
+						<p class="types" id="reinspection" onclick="makeCircle(this.id)">RI</p>
+						<p class="types" id="cc" onclick="makeCircle(this.id)">CC #</p>
+						<p class="types" id="ccPu" onclick="makeCircle(this.id)">CC P/U</p>
+						<p class="types" id="fourPlus" onclick="makeCircle(this.id)">4+ CLAIMS</p>
+					</div>
 				</div>
 			</div>
 			<div id="defects">
 				<br>
-				<span style="position: absolute; left: 0; top: 40px; font-size: 20px;"><strong>Sidewalk Flag Defects</strong></span> &nbsp; <span class="defectText" id="broken" onclick="makeCircle(this.id)">1 - Broken</span> &nbsp; <span class="defectText" id="undermined"
-				  onclick="makeCircle(this.id)">2 - Undermined</span> &nbsp; <span class="defectText" id="trip" onclick="makeCircle(this.id)">3 - Trip Hazard</span> &nbsp; <span class="defectText" id="slope" onclick="makeCircle(this.id)">4 - Improper Slope</span> &nbsp;
+				<span style="position: absolute; left: 0; top: 40px; font-size: 20px;"><strong>Sidewalk Flag Defects</strong></span> &nbsp; <span class="defectText" id="broken" onclick="makeCircle(this.id)">1 - Broken</span> &nbsp;
+				<span class="defectText" id="undermined" onclick="makeCircle(this.id)">2 - Undermined</span> &nbsp; <span class="defectText" id="trip" onclick="makeCircle(this.id)">3 - Trip Hazard</span> &nbsp; <span class="defectText" id="slope" onclick="makeCircle(this.id)">4 - Improper Slope</span> &nbsp;
 				<span class="defectText" id="hardware" onclick="makeCircle(this.id)">5 - Hardware</span> &nbsp; <span class="defectText" id="structural-integrity" onclick="makeCircle(this.id)">6A - Structural Intergrity</span><br>
-				<span class="defectText" id="freestanding" onclick="makeCircle(this.id)">6B - Freestanding</span> &nbsp; <span class="defectText" id="patchwork" onclick="makeCircle(this.id)">6C - Patchwork</span> &nbsp; <span class="defectText" id="no-sidewalk" onclick="makeCircle(this.id)">6D - No Sidewalk</span>				&nbsp; <span class="defectText" id="asphalt" onclick="makeCircle(this.id)">6E - Asphalt</span> &nbsp; <span class="defectText" id="other" onclick="makeCircle(this.id)">6 - Other<input type="text" size="15"></span>
+				<span class="defectText" id="freestanding" onclick="makeCircle(this.id)">6B - Freestanding</span> &nbsp; <span class="defectText" id="patchwork" onclick="makeCircle(this.id)">6C - Patchwork</span> &nbsp;
+				<span class="defectText" id="no-sidewalk" onclick="makeCircle(this.id)">6D - No Sidewalk</span>				&nbsp; <span class="defectText" id="asphalt" onclick="makeCircle(this.id)">6E - Asphalt</span> &nbsp; <span class="defectText" id="other" onclick="makeCircle(this.id)">6 - Other<input type="text" size="15"></span>
 			</div>
 			<!--</div>-->
 

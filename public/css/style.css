@@ -1,168 +1,11 @@
 html {
   background: #ffffff;
-  /*max-height: 1024px;*/
-  min-height: 100%;
   width: 100%;
   text-align: center;
   position: relative;
+  overflow: hidden;
   margin: 0;
 }
-
-/* -----------------------------------------------------------
- * Media Queries
- */
-
-#property_info {
-  font-size: 16px;
-}
-
-#estimate {
-  font-size: 14px;
-}
-
-#ownership_info {
-  font-size: 16px;
-}
-
-#vertical_text {
-  font-size: 12px;
-}
-
-#typeofinspection {
-  font-size: 10px;
-}
-
-/* Tablets/Ipad's in Portrait */
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-  #fill_in {
-    height: 300px;
-  }
-  #property_info {
-    font-size: 16px;
-  }
-  #estimate {
-    font-size: 14px;
-  }
-  #ownership_info {
-    font-size: 16px;
-  }
-  #vertical_text {
-    font-size: 12px;
-  }
-  #typeofinspection {
-    font-size: 10px;
-  }
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  #fill_in {
-    height: 300px;
-  }
-  #property_info {
-    font-size: 16px;
-  }
-  #estimate {
-    font-size: 14px;
-  }
-  #ownership_info {
-    font-size: 16px;
-  }
-  #vertical_text {
-    font-size: 12px;
-  }
-  #typeofinspection {
-    font-size: 10px;
-  }
-}
-
-@media only screen and (min-device-width: 1112px) and (max-device-width: 1112px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  #fill_in {
-    height: 300px;
-  }
-  #property_info {
-    font-size: 16px;
-  }
-  #estimate {
-    font-size: 14px;
-  }
-  #ownership_info {
-    font-size: 16px;
-  }
-  #vertical_text {
-    font-size: 12px;
-  }
-  #typeofinspection {
-    font-size: 10px;
-  }
-}
-
-@media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  #fill_in {
-    height: 300px;
-  }
-  #property_info {
-    font-size: 16px;
-  }
-  #estimate {
-    font-size: 14px;
-  }
-  #ownership_info {
-    font-size: 16px;
-  }
-  #vertical_text {
-    font-size: 12px;
-  }
-  #typeofinspection {
-    font-size: 10px;
-  }
-}
-
-@media (max-device-width: 1280px) and (orientation: landscape) {
-  #fill_in {
-    height: 300px;
-  }
-  #property_info {
-    font-size: 16px;
-  }
-  #estimate {
-    font-size: 14px;
-  }
-  #ownership_info {
-    font-size: 16px;
-  }
-  #vertical_text {
-    font-size: 12px;
-  }
-  #typeofinspection {
-    font-size: 10px;
-  }
-}
-
-@media (max-device-width: 1280px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  #fill_in {
-    height: 300px;
-  }
-  #property_info {
-    font-size: 16px;
-  }
-  #estimate {
-    font-size: 14px;
-  }
-  #ownership_info {
-    font-size: 16px;
-  }
-  #vertical_text {
-    font-size: 12px;
-  }
-  #typeofinspection {
-    font-size: 10px;
-  }
-}
-
-/* -----------------------------------------------------------
-  * End Media Queries
-  */
 
 /*------------------------------------------------------------
  * Whole page
@@ -171,7 +14,6 @@ html {
 #pirPage {
   height: 100vh;
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -189,7 +31,7 @@ html {
   width: 100%;
   flex-direction: row;
   position: relative;
-  z-index: 123;
+  z-index: 122;
 }
 
 #header {
@@ -266,7 +108,7 @@ input[type="text"] {
 
 #sheets {
   position: absolute;
-  right: 0;
+  right: 10px;
 }
 
 #pirHead {
@@ -276,8 +118,8 @@ input[type="text"] {
 #contracts {
   position: absolute;
   left: 0;
-  padding-left: 5.25vw;
-  z-index: 15000;
+  padding-left: 4vw;
+  z-index: 123;
 }
 
 .sheet_input {
@@ -289,10 +131,10 @@ input[type="text"] {
 
 #fill_in {
   background: #ffffff;
-  width: 100%;
+  width: 95%;
 	overflow: auto;
   display: inline-flex;
-  padding-left: 5.25vw;
+  padding-left: 4vw;
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -309,27 +151,23 @@ input[type="text"] {
 }
 
 #property_info {
-  text-align: center;
-  flex: auto;
-  min-width: 30%;
-  max-width: 30%;
+  text-align: left;
+  flex: 2;
   border: 1px solid black;
   height: auto;
   background: #ffffff;
   margin: 0;
-  padding: 0;
-  font-size: 12px;
+  padding-left: 5px;
+  font-size: 14px;
   font-weight: bold;
 }
 
 #estimate {
   text-align: left;
-  flex: auto;
+  flex: 3;
   border: 1px solid black;
   background: #ffffff;
-  padding-left: 2vw;
-  max-width: 35%;
-  font-size: 12px;
+  padding-left: 5px;
   font-weight: bold;
 }
 
@@ -339,8 +177,7 @@ input[type="text"] {
 
 #ownership_info {
   text-align: center;
-  flex: auto;
-  min-width: 20%;
+  flex: 2;
   border: 1px solid black;
   background: #ffffff;
   margin: 0;
@@ -367,23 +204,25 @@ input[type="text"] {
   border: 1px solid black;
   text-align: center;
   font-weight: bold;
-  font-size: 11px;
+  overflow: hidden;
   min-width: 1%;
   max-width: 4%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: .4vh;
+}
+
+.types {
+  padding: 0;
+  margin: 2px;
+  font-size: 12px;
 }
 
 #defects {
   background: #ffffff;
   position: relative;
   border: 1px solid black;
-  width: 98.75vw;
+  width: 95%;
   height: 8vh;
   overflow: hidden;
-  margin-left: 5.25vw;
+  margin-left: 4.45vw;
   text-align: center;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -413,7 +252,7 @@ input[type="text"] {
  	 */
 
 #pirBody {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   position: absolute;
@@ -430,7 +269,6 @@ input[type="text"] {
 canvas, bgcanvas {
   height: 100%;
   width: 100%;
-  border: 1px solid black;
   position: absolute;
   z-index: 1;
   -webkit-touch-callout: none;
@@ -455,78 +293,6 @@ footer {
   right: 5vw;
 }
 
-#streetOne {
-  font-size: 26px;
-  z-index: 4;
-  position: relative;
-  height: 2vh;
-  text-align: center;
-  border-bottom: 0px solid black;
-  left: 2vw;
-  top: 2vh;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror- HTML */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-	                                   supported by Chrome and Opera */
-}
-
-#streetTwo {
-  font-size: 26px;
-  z-index: 4;
-  position: relative;
-  height: 2vh;
-  text-align: center;
-  border-bottom: 0px solid black;
-  right: -50vw;
-  top: 2vh;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror- HTML */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-	                                   supported by Chrome and Opera */
-}
-
-#streetThree {
-  font-size: 26px;
-  z-index: 4;
-  position: relative;
-  height: 2vh;
-  text-align: center;
-  border-bottom: 0px solid black;
-  bottom: -45vh;
-  left: 4vw;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror- HTML */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
-	                                   supported by Chrome and Opera */
-}
-
 /*-----------------------------------------------------------------
  	 * end of canvas
  	 */
@@ -538,11 +304,11 @@ footer {
 #bottomKey {
   position: absolute;
   z-index: 200;
-  margin-left: 5.25vw;
+  margin-left: 4.35vw;
   margin-bottom: 50px;
   left: 0;
   bottom: 0;
-  width: 98.75vw;
+  width: 95%;
   text-align: center;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -583,7 +349,7 @@ footer {
 }
 
 #comments {
-  width: 98.75vw;
+  width: 100%;
   display: inline-flex;
   border: 1px solid black;
   flex-wrap: nowrap;
@@ -593,14 +359,14 @@ footer {
 
 #divFor {
   flex: auto;
-  margin-left: 40vw;
+  margin-left: 35vw;
   font-size: 14px;
 }
 
 #key {
   z-index: 10;
   display: inline-flex;
-  width: 98.75vw;
+  width: 100%;
   border: 1px solid black;
   font-weight: bold;
 }
@@ -645,30 +411,20 @@ figure {
  	 * end of curb, comments, key
  	 */
 
-#emptyPage {
-  position: absolute;
-  width: 100vw;
-  margin-left: 5.25vw;
-  bottom: 0;
-  height: 5vh;
-  background: #FFFFFF;
-  z-index: 1234123412341;
-}
-
 #leftSideImage {
   position: absolute;
   height: 85vh;
   width: 3vw;
   left: 0;
   padding-top: 3.3cm;
-  margin-left: .6cm;
-  z-index: 0;
+  margin-left: .2cm;
+  z-index: 124;
 }
 
 #containerSide {
   position: fixed;
   top: 0;
-  z-index: 123123123;
+  z-index: 124;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -709,7 +465,7 @@ figure {
 }
 
 #help, #coords {
-  display: inline-block;
+  display: none;
   background: #FFFBE3;
   padding: 1px 8px;
   border: 1px solid #8A8A8A;
