@@ -11,6 +11,7 @@ var canvas,
   mouseX,
   mouseY;
 var customInputArray = new Array();
+var points = new Array();
 
 function help(text) { // maybe this should be in refresh and ref tool.help
   document.getElementById("help").innerHTML = text;
@@ -184,6 +185,11 @@ drawing.refresh = function() {
         canvas.lineTo(obj.u, obj.v);
         canvas.stroke();
       }
+    } else if(obj.type === "point"){
+      canvas.moveTo(obj.x, obj.y);
+      canvas.fillStyle = "black";
+      canvas.fillRect(obj.x - 2.5, obj.y - 2.5, 5, 5);
+      canvas.fillStyle = "#ffa0a0";
     } else if (obj.type === "highlight") {
       canvas.moveTo(obj.x, obj.y);
       canvas.fillStyle = 'rgba(204, 255, 21, 0.5)';
@@ -500,6 +506,85 @@ mouse.move = function(e) {
 mouse.hide = function(e) {
   document.getElementById("coords").style.display = "none";
   drawing.refresh();
+}
+
+function Dot() {
+  help(interaction + " to set new point");
+  this.points = 0;
+  this.coords = {};
+  this.coords.type = "point";
+  this.click = function(x, y) {
+    this.save();
+    this.reset();
+  }
+  this.reset = function() {
+    tool = new Dot();
+    drawing.refresh();
+    tool.move(mouseX, mouseY);
+  }
+  this.move = function(x, y) {
+    var snapped;
+    if (this.points === 0) {
+      snapped = snap(x, y);
+      this.coords.x = snapped.x;
+      this.coords.y = snapped.y;
+    }
+    canvas.beginPath();
+    canvas.arc(snapped.x, snapped.y, 2.5, 0, 2 * Math.PI, true);
+    canvas.fill();
+  }
+  this.save = function() {
+    this.coords.width = 2;
+    drawing.drawing.objects.push(this.coords);
+    points.push(this.coords);
+    mouse.hide();
+  }
+}
+
+function connectDots(){
+  points.forEach(function(point){
+    for(var i = 0; i < points.length; i++){
+      if(points[i].x === point.x){
+        /*canvas.beginPath();
+        canvas.moveTo(point.x, point.y);
+        canvas.lineTo(points[i].x, points[i].y);
+        canvas.stroke();
+        canvas.fill();*/
+        this.coords = {};
+        this.coords.type = "line";
+        this.coords.x = point.x;
+        this.coords.y = point.y;
+        this.coords.u = points[i].x;
+        this.coords.v = points[i].y;
+        this.coords.width = 2;
+        canvas.beginPath();
+        canvas.moveTo(point.x, point.y);
+        canvas.lineTo(points[i].x, points[i].y);
+        canvas.stroke();
+        canvas.fill();
+        drawing.drawing.objects.push(this.coords);
+        drawing.drawing.points.push([this.coords.x, this.coords.y]);
+        drawing.drawing.points.push([this.coords.u, this.coords.v]);
+      }
+      if(points[i].y === point.y){
+        this.coords = {};
+        this.coords.type = "line";
+        this.coords.x = point.x;
+        this.coords.y = point.y;
+        this.coords.u = points[i].x;
+        this.coords.v = points[i].y;
+        this.coords.width = 2;
+        canvas.beginPath();
+        canvas.moveTo(point.x, point.y);
+        canvas.lineTo(points[i].x, points[i].y);
+        canvas.stroke();
+        canvas.fill();
+        drawing.drawing.objects.push(this.coords);
+        drawing.drawing.points.push([this.coords.x, this.coords.y]);
+        drawing.drawing.points.push([this.coords.u, this.coords.v]);
+      }
+    }
+  });
 }
 
 function Line() {
@@ -905,6 +990,12 @@ function buttonClick(e) {
   var youClicked = {
     "line-button": function() {
       tool = new Line();
+    },
+    "point-button": function(){
+      tool = new Dot();
+    },
+    "connect-button": function(){
+      connectDots();
     },
     "arc-button": function() {
       tool = new Arc();

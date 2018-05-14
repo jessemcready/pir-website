@@ -305,7 +305,7 @@ footer {
   position: absolute;
   z-index: 200;
   margin-left: 4.35vw;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   left: 0;
   bottom: 0;
   width: 95%;
@@ -329,7 +329,7 @@ footer {
   width: 100vw;
   display: flex;
   flex-direction: row;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 #curbOne {
@@ -353,7 +353,6 @@ footer {
   display: inline-flex;
   border: 1px solid black;
   flex-wrap: nowrap;
-  height: 3vh;
   align-content: space-between;
 }
 
