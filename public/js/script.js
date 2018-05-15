@@ -947,7 +947,7 @@ window.addEventListener("load", function() {
     interaction = "Click";
   }
   document.getElementById("help").innerHTML = interaction + " to set new line start point";
-  tool = new Line();
+  tool = new Dot();
   drawing.refresh();
 });
 
