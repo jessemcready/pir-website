@@ -372,10 +372,10 @@ footer {
 
 #yellowBox {
   position: absolute;
-  margin-right: 100px;
-  margin-top: -75px;
+  margin-right: 60px;
+  margin-top: -40px;
   right: 0;
-  width: 25vw;
+  width: 450px;
   height: 7vh;
   z-index: 20;
 }
@@ -415,7 +415,7 @@ figure {
   height: 85vh;
   width: 3vw;
   left: 0;
-  padding-top: 3.3cm;
+  padding-top: 2cm;
   margin-left: .2cm;
   z-index: 124;
 }

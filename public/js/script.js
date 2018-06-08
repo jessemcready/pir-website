@@ -442,13 +442,12 @@ function hideHeaderFooter() {
 }
 
 function scalePage() {
-  //document.getElementById("pirPage").style.width = '100%';
-  //document.getElementById("pirPage").style.height = '100vh';
+  document.getElementById("pirPage").style.height = '95vh';
   document.getElementById("bgcanvas").style.display = 'none';
+  document.getElementById("leftSideImage").style.paddingBottom = '10px';
 }
 
 function unscalePage() {
-  document.getElementById("pirPage").style.width = '100%';
   document.getElementById("pirPage").style.height = '100vh';
   document.getElementById("bgcanvas").style.display = 'block';
 }
@@ -471,7 +470,7 @@ drawing.savePDF = function() {
 
   var pirPage = document.getElementById("pirPage");
 
-  doc.addHTML(pirPage, 0.5, 0.5, function() {
+  doc.addHTML(pirPage, 0, 0, function() {
 		doc.save(name + ".pdf");
 		showAside();
     unscalePage();
